@@ -8,6 +8,29 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        /* Semantic, CSS-variable driven theme colors */
+        background: "rgb(var(--background) / <alpha-value>)",
+        foreground: "rgb(var(--foreground) / <alpha-value>)",
+
+        card: "rgb(var(--card) / <alpha-value>)",
+        "card-foreground": "rgb(var(--card-foreground) / <alpha-value>)",
+
+        muted: "rgb(var(--muted) / <alpha-value>)",
+        "muted-foreground": "rgb(var(--muted-foreground) / <alpha-value>)",
+
+        border: "rgb(var(--border) / <alpha-value>)",
+        ring: "rgb(var(--ring) / <alpha-value>)",
+
+        primary: {
+          DEFAULT: "rgb(var(--primary) / <alpha-value>)",
+          foreground: "rgb(var(--primary-foreground) / <alpha-value>)",
+        },
+        accent: {
+          DEFAULT: "rgb(var(--accent) / <alpha-value>)",
+          foreground: "rgb(var(--accent-foreground) / <alpha-value>)",
+        },
+      },
       borderRadius: {
         "4xl": "2.5rem",
       },

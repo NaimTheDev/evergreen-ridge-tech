@@ -12,7 +12,7 @@ export default function Layout({ children }) {
   return (
     <html
       lang="en"
-      className="h-full bg-neutral-950 text-base antialiased text-neutral-100"
+      className="h-full bg-background text-base antialiased text-foreground"
     >
       <body className="flex min-h-full flex-col">
         <RootLayout>{children}</RootLayout>

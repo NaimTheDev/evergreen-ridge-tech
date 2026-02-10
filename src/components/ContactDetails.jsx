@@ -12,8 +12,7 @@ const ContactDetails = () => {
         Our offices
       </h2>
       <p className="mt-6 text-base text-neutral-600">
-        Prefer doing things in person? We don’t but we have to list our
-        addresses here for legal reasons.
+        We are located in the Midwest, but we work with clients across the country.
       </p>
       <Offices className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2" />
       <Border className="mt-16 pt-16">
@@ -22,8 +21,7 @@ const ContactDetails = () => {
         </h2>
         <dl className="mt-6 grid grid-cols-1 gap-8 text-sm sm:grid-cols-2">
           {[
-            ["Careers", "reactjsbd.com"],
-            ["Press", "noorjsdivs@gmail.com"],
+            ["Email", "contact@evergreenridgetech.com"],
           ].map(([label, email]) => (
             <div key={email}>
               <dt className="font-semibold text-neutral-950">{label}</dt>
@@ -43,7 +41,7 @@ const ContactDetails = () => {
         <h2 className="font-display text-base font-semibold text-neutral-950">
           Follow us
         </h2>
-        <SocialMedia className="mt-6" />
+        {/* <SocialMedia className="mt-6" /> */}
       </Border>
     </FadeIn>
   );

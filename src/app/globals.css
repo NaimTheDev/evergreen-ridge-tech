@@ -1,3 +1,76 @@
 @import "./base.css";
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/*
+	Evergreen Ridge color system
+	- Keep your brand palette in CSS variables
+	- Tailwind theme tokens (via tailwind.config.js) reference these variables
+	- This lets us change the whole site palette without rewriting classNames
+*/
+
+@layer base {
+	:root {
+		/* Brand palette (from you) */
+			--green-primary: 12 52 40; /* slightly darker evergreen */
+		--charcoal: 18 18 18; /* #121212 */
+		--off-white: 247 249 248; /* #F7F9F8 */
+		--light-gray: 230 236 233; /* #E6ECE9 */
+		--sage: 143 184 163; /* #8FB8A3 */
+
+		/* Expanded tokens (used for nicer hover/focus states) */
+		--green-primary-700: 9 44 34; /* darker */
+		--green-primary-600: var(--green-primary);
+		--green-primary-500: 25 93 70; /* lighter */
+
+		--sage-600: 114 163 139;
+		--sage-500: var(--sage);
+		--sage-400: 170 210 191;
+
+		/* Semantic tokens */
+		--background: var(--off-white);
+		--foreground: var(--charcoal);
+
+		--card: 255 255 255;
+		--card-foreground: var(--charcoal);
+
+		--muted: var(--light-gray);
+		--muted-foreground: 78 95 88; /* slatey gray-green */
+
+		--border: 198 210 205;
+		--ring: var(--sage);
+
+		--primary: var(--green-primary);
+		--primary-foreground: 255 255 255;
+
+		--accent: var(--sage);
+		--accent-foreground: var(--charcoal);
+	}
+
+	/* Dark mode (opt-in with class="dark" on <html>, or later via a toggle) */
+	.dark {
+		--background: var(--charcoal);
+		--foreground: 247 249 248;
+
+		--card: 24 24 24;
+		--card-foreground: 247 249 248;
+
+		--muted: 30 34 33;
+		--muted-foreground: 198 210 205;
+
+		--border: 52 60 58;
+		--ring: var(--sage);
+
+		--primary: var(--sage);
+		--primary-foreground: 18 18 18;
+
+		--accent: var(--green-primary);
+		--accent-foreground: 247 249 248;
+	}
+
+	html {
+		background-color: rgb(var(--background));
+		color: rgb(var(--foreground));
+	}
+}
