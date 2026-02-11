@@ -157,6 +157,59 @@ export default function Home() {
         </FadeIn>
       </Container>
 
+      <Container className="mt-20 sm:mt-28">
+        <FadeIn>
+          <div className="rounded-4xl border border-border bg-card p-10">
+            <p className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">
+              NAICS codes
+            </p>
+            <h2 className="mt-3 font-display text-3xl font-semibold text-foreground sm:text-4xl">
+              Contracting classifications we support
+            </h2>
+            <p className="mt-4 max-w-3xl text-base text-muted-foreground">
+              These NAICS codes align with our core delivery areas across
+              software, systems design, and related IT services.
+            </p>
+
+            <div className="mt-8 grid gap-4 lg:grid-cols-3">
+              <div className="rounded-3xl border border-border bg-background p-6">
+                <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+                  Primary
+                </p>
+                <p className="mt-3 text-lg font-semibold text-foreground">
+                  54151
+                </p>
+                <p className="mt-2 text-sm text-muted-foreground">
+                  Custom Computer Programming Services
+                </p>
+              </div>
+              <div className="rounded-3xl border border-border bg-background p-6">
+                <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+                  Secondary
+                </p>
+                <p className="mt-3 text-lg font-semibold text-foreground">
+                  541512
+                </p>
+                <p className="mt-2 text-sm text-muted-foreground">
+                  Computer Systems Design Services
+                </p>
+              </div>
+              <div className="rounded-3xl border border-border bg-background p-6">
+                <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+                  Secondary
+                </p>
+                <p className="mt-3 text-lg font-semibold text-foreground">
+                  541519
+                </p>
+                <p className="mt-2 text-sm text-muted-foreground">
+                  Other Computer Related Services
+                </p>
+              </div>
+            </div>
+          </div>
+        </FadeIn>
+      </Container>
+
       <Services />
       <ContactSection />
     </main>

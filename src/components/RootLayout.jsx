@@ -31,7 +31,10 @@ const Header = ({
           <Image
             src={logoWithWords}
             alt="Evergreen Ridge Technology logo"
-            className="h-32 w-auto sm:h-44 lg:h-72"
+            className={clsx(
+              "h-32 w-auto sm:h-44 lg:h-72",
+              invert && "brightness-0 invert"
+            )}
             priority
           />
         </Link>
