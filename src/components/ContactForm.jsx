@@ -24,7 +24,7 @@ const ContactForm = () => {
         }
       );
 
-      if (response.ok) {
+      if (response.ok) { 
         form.reset();
         setStatus("sent");
       } else {
