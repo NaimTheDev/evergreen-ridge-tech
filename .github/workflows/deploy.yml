@@ -33,8 +33,8 @@ jobs:
       - name: Build (Next export -> out/)
         run: npm run build
 
-      - name: Ensure out/ directory exists
-        run: mkdir -p out
+      - name: Verify export output
+        run: test -f out/index.html
 
       - name: Add CNAME for custom domain
         run: echo "www.evergreenridgetech.com" > out/CNAME
