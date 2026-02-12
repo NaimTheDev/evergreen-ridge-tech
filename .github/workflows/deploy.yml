@@ -33,9 +33,11 @@ jobs:
       - name: Build (Next export -> out/)
         run: npm run build
 
-      # Optional but recommended: ensures GitHub Pages serves custom domain cleanly
+      - name: Ensure out/ directory exists
+        run: mkdir -p out
+
       - name: Add CNAME for custom domain
-        run: echo "evergreenridgetech.com" > out/CNAME
+        run: echo "www.evergreenridgetech.com" > out/CNAME
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
