@@ -22,9 +22,7 @@ const Offices = ({ invert = false, ...props }) => {
     <ul role="list" {...props}>
       <li>
         <Office name="U.S.A" invert={invert}>
-          6426 Anthony Martin
-          <br />
-         Columbus, OH
+          Columbus, OH
         </Office>
       </li>
       
