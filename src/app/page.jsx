@@ -17,8 +17,8 @@ export default function Home() {
             </h1>
             <p className="mt-6 text-xl text-muted-foreground">
               Evergreen Ridge Technology is a software development agency
-              delivering secure, scalable web and cloud applications for teams
-              that want to ship with confidence.
+              delivering secure, scalable web, cloud, and AI-powered
+              applications for teams that want to ship with confidence.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <span className="rounded-full border border-border bg-card px-4 py-2 text-sm text-card-foreground">
@@ -26,6 +26,9 @@ export default function Home() {
               </span>
               <span className="rounded-full border border-border bg-card px-4 py-2 text-sm text-card-foreground">
                 Web & mobile apps
+              </span>
+              <span className="rounded-full border border-border bg-card px-4 py-2 text-sm text-card-foreground">
+                AI applications
               </span>
               <span className="rounded-full border border-border bg-card px-4 py-2 text-sm text-card-foreground">
                 Product design
@@ -141,7 +144,8 @@ export default function Home() {
                   Technical depth
                 </p>
                 <p className="mt-2 text-sm text-muted-foreground">
-                  Cloud adoption, infrastructure, and application development.
+                  Cloud adoption, infrastructure, AI integration, and
+                  application development.
                 </p>
               </div>
             </div>

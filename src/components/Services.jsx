@@ -37,6 +37,11 @@ const Services = () => {
               Build modern, secure web and mobile applications with clean
               architecture and clear performance baselines.
             </ListItem>
+            <ListItem title="AI application development">
+              Build AI-powered web applications — from chatbots and intelligent
+              assistants to LLM integrations, retrieval-augmented generation, and
+              automation that fits naturally into your product.
+            </ListItem>
             <ListItem title="Security & reliability">
               Apply security best practices, continuous monitoring, and
               documentation to keep your applications safe and dependable.
