@@ -11,10 +11,10 @@ const AboutPage = () => {
     <>
       <PageIntro eyebrow="About" title="About the Founder">
         <p>
-          Evergreenridge Technologies was founded by Naim Abubaker, a software
-          engineer with over six years of experience building scalable,
-          high-performance applications across healthcare, enterprise, and SaaS
-          environments.
+          Evergreen Ridge Technology is a software development studio founded by
+          Naim Abubaker — a software engineer with 6+ years building secure,
+          scalable web and mobile applications for healthcare, enterprise, and
+          SaaS companies.
         </p>
       </PageIntro>
 
@@ -37,19 +37,27 @@ const AboutPage = () => {
                 About the Founder
               </h2>
               <p className="mt-6 text-base/7 text-muted-foreground">
-                Evergreenridge Technologies was founded by Naim Abubaker, a
-                software engineer with over six years of experience building
-                scalable, high-performance applications across healthcare,
-                enterprise, and SaaS environments. He has led frontend
-                architecture and performance optimization initiatives at
-                organizations including AndHealth and Cardinal Health,
-                improving workflow efficiency, reducing system latency, and
-                standardizing reusable UI systems across teams. With deep
-                expertise in React, Angular, Flutter, and modern state
-                management, he focuses on delivering secure, maintainable
-                software designed for real-world operational use. His work
-                emphasizes clarity, performance, and long-term reliability in
-                environments where accuracy and system integrity matter.
+                Evergreen Ridge Technology was founded by Naim Abubaker, a
+                software engineer with more than six years of experience
+                building scalable, high-performance web and mobile applications
+                across healthcare, enterprise, and SaaS. He has led frontend
+                architecture and performance initiatives at companies like
+                AndHealth and Cardinal Health — streamlining workflows, cutting
+                system latency, and building reusable design systems that helped
+                teams ship faster.
+              </p>
+              <p className="mt-4 text-base/7 text-muted-foreground">
+                With deep expertise in React, Angular, Flutter, and modern state
+                management, Naim founded Evergreen Ridge Technology to bring that
+                same engineering rigor to growing businesses. The result is
+                secure, maintainable software built for the real world —
+                products that are fast, reliable, and easy to scale as your team
+                grows.
+              </p>
+              <p className="mt-4 text-base/7 text-muted-foreground">
+                Whether you&apos;re launching a new product or modernizing an
+                existing one, Evergreen Ridge Technology partners with you from
+                first idea to launch and beyond.
               </p>
             </div>
           </FadeIn>
