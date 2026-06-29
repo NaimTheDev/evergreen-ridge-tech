@@ -13,7 +13,7 @@ const ContactSection = () => {
             Let’s work together
           </h2>
           <p className="mt-4 max-w-2xl text-base/7 text-neutral-300">
-            Open to subcontracting and joint contracting opportunities.
+            Open to new projects and long-term partnerships.
           </p>
           <div className="mt-6 flex">
             <Button href={"/contact"} invert>
