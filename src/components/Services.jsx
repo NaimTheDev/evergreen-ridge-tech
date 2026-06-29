@@ -11,12 +11,12 @@ const Services = () => {
     <>
       <SectionIntro
         eyebrow="Services"
-        title="We deliver dependable IT services built for government missions."
+        title="We deliver dependable software services built for growing businesses."
         className="mt-24 sm:mt-32 lg:mt-40"
       >
         <p>
-          Our team aligns with agency requirements, security standards, and
-          performance outcomes to keep programs on track and mission teams
+          Our team aligns with your business goals, technical standards, and
+          performance outcomes to keep projects on track and your team
           supported.
         </p>
       </SectionIntro>
@@ -33,21 +33,21 @@ const Services = () => {
           </div>
           {/* List item */}
           <List className="mt-16 lg:mt-0 lg:w-1/2 lg:min-w-[33rem] lg:pl-4">
-            <ListItem title="IT modernization">
-              Refresh legacy environments with secure architectures, phased
-              migrations, and clear performance baselines.
+            <ListItem title="Web & app development">
+              Build modern, secure web and mobile applications with clean
+              architecture and clear performance baselines.
             </ListItem>
-            <ListItem title="Cybersecurity & compliance">
-              Apply risk management, continuous monitoring, and documentation
-              practices aligned to federal and state requirements.
+            <ListItem title="Security & reliability">
+              Apply security best practices, continuous monitoring, and
+              documentation to keep your applications safe and dependable.
             </ListItem>
             <ListItem title="Cloud & infrastructure">
               Design and operate resilient cloud and hybrid environments that
               improve scalability, uptime, and cost transparency.
             </ListItem>
-            <ListItem title="Service desk & operations">
+            <ListItem title="Support & maintenance">
               Deliver responsive support, incident management, and continuous
-              improvement for mission-critical users.
+              improvement for your users.
             </ListItem>
           </List>
         </div>

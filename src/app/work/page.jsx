@@ -10,19 +10,19 @@ const WorkPage = () => {
         title="Proven solutions for real-world problems."
       >
         <p>
-          We help public sector partners modernize systems and deliver reliable
-          digital services. Our approach combines disciplined delivery,
-          security-minded engineering, and clear communication — so agencies and
-          prime contractors can meet mission needs on time and within scope.
+          We help businesses modernize systems and deliver reliable digital
+          products. Our approach combines disciplined delivery, security-minded
+          engineering, and clear communication — so our clients can meet their
+          goals on time and within scope.
         </p>
 
         <div className="mt-12">
           <FadeIn>
             <h2 className="font-display text-2xl font-semibold text-neutral-950">
-              Past performance
+              Selected work
             </h2>
             <p className="mt-3 text-base text-neutral-600">
-              A snapshot of recent work and delivery experience.
+              A snapshot of recent projects and delivery experience.
             </p>
           </FadeIn>
 
@@ -43,7 +43,7 @@ const WorkPage = () => {
                   <dd className="mt-1 text-neutral-600">10/2024–10/2025</dd>
                 </div>
                 <div>
-                  <dt className="font-semibold text-neutral-950">POC</dt>
+                  <dt className="font-semibold text-neutral-950">Reference</dt>
                   <dd className="mt-1 text-neutral-600">AndHealth LC</dd>
                 </div>
               </dl>
@@ -59,7 +59,7 @@ const WorkPage = () => {
                   <dd className="mt-1 text-neutral-600">06/2020–09/2024</dd>
                 </div>
                 <div>
-                  <dt className="font-semibold text-neutral-950">POC</dt>
+                  <dt className="font-semibold text-neutral-950">Reference</dt>
                   <dd className="mt-1 text-neutral-600">Ethan Hong, Cardinal Health</dd>
                 </div>
               </dl>
