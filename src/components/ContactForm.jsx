@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import FadeIn from "./FadeIn";
 import TextInput from "./TextInput";
 import Button from "./Button";
+import { submitContactForm } from "@/lib/apiClient";
 
 
 const ContactForm = () => {
@@ -10,26 +11,30 @@ const ContactForm = () => {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    setStatus("sending");
 
     const form = e.currentTarget;
     const data = new FormData(form);
 
-    try {
-      const response = await fetch(
-        "https://formkeep.com/f/0c6efb5c2fbb",
-        {
-          method: "POST",
-          body: data,
-        }
-      );
+    // Honeypot: bots fill hidden fields. Pretend success and stop.
+    if (data.get("_gotcha")) {
+      form.reset();
+      setStatus("sent");
+      return;
+    }
 
-      if (response.ok) { 
-        form.reset();
-        setStatus("sent");
-      } else {
-        setStatus("error");
-      }
+    setStatus("sending");
+
+    try {
+      await submitContactForm({
+        name: data.get("name"),
+        email: data.get("email"),
+        company: data.get("company"),
+        phone: data.get("phone"),
+        message: data.get("message"),
+      });
+
+      form.reset();
+      setStatus("sent");
     } catch (err) {
       setStatus("error");
     }

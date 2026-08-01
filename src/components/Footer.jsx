@@ -71,9 +71,19 @@ const Footer = () => {
                        priority
                      />
           </Link>
-          <p className="text-sm text-neutral-700">
-            © Evergreen Ridge Technologies LLC {new Date().getFullYear()}
-          </p>
+          <div className="flex flex-col items-end gap-2">
+            <div className="flex gap-x-4 text-sm text-neutral-700">
+              <Link href="/privacy-policy" className="hover:text-neutral-950">
+                Privacy Policy
+              </Link>
+              <Link href="/terms-of-service" className="hover:text-neutral-950">
+                Terms of Service
+              </Link>
+            </div>
+            <p className="text-sm text-neutral-700">
+              © Evergreen Ridge Technologies LLC {new Date().getFullYear()}
+            </p>
+          </div>
         </div>
       </FadeIn>
     </Container>
