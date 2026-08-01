@@ -7,6 +7,13 @@ import { estimateRouter } from "./routes/estimate";
 
 const app = express();
 
+// Render puts the app behind its own reverse proxy, so the raw socket address
+// is Render's proxy, not the visitor — every request would otherwise collapse
+// to the same rate-limit bucket. Trusting 1 hop reads the real client IP from
+// X-Forwarded-For instead. Verify after deploying (log req.ip on a request and
+// compare to your own public IP); bump this if Render adds more hops in front.
+app.set("trust proxy", 1);
+
 const allowedOrigins = (process.env.ALLOWED_ORIGINS || "")
   .split(",")
   .map((origin) => origin.trim())

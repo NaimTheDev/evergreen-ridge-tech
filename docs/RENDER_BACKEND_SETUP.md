@@ -23,7 +23,9 @@ You already have a Render account, so either:
 with `rootDir: server`. In the Render dashboard, **New** → **Blueprint**, point it
 at this repo, and Render will pick up `render.yaml` and provision the service.
 You'll be prompted for the two `sync: false` secrets (`RESEND_API_KEY`,
-`FROM_EMAIL`) during setup.
+`FROM_EMAIL`) during setup. `render.yaml` also sets `buildFilter: paths: [server/**]`,
+so pushes to `main` that only touch the frontend won't trigger a pointless backend
+redeploy — this is a Blueprint-only feature, so it's honored automatically here.
 
 **Option B — Manual web service:** **New** → **Web Service**, connect this repo,
 and set:
@@ -31,6 +33,11 @@ and set:
 - **Runtime:** Node
 - **Build Command:** `npm install && npm run build`
 - **Start Command:** `npm start`
+
+A manually-created service doesn't read `render.yaml` at all, so if you go this
+route, set the same path scoping yourself under **Settings → Build & Deploy →
+Build Filters** → include path `server/**` — otherwise every push to `main`
+redeploys the backend even when only the frontend changed.
 
 Either way, set these environment variables on the Render service (see
 `server/.env.example` for the full list):
@@ -80,3 +87,10 @@ With the backend running locally (or against the deployed Render URL) and
 - Walk `/cost-estimator` to completion and submit — confirm the visitor's inbox
   gets the HTML draft with a PDF attachment, and the internal lead notification
   (with the same PDF attached) arrives at `naim@evergreenridgetech.com`.
+- Once deployed on Render, verify the rate limiter is keying requests by the real
+  visitor IP and not Render's proxy: temporarily add `app.get("/debug-ip", (req, res) => res.send(req.ip))`,
+  hit `https://<your-service>.onrender.com/debug-ip`, and confirm it matches your
+  actual public IP (e.g. from https://ipify.org). `server/src/index.ts` sets
+  `app.set("trust proxy", 1)`, which is correct for Render's documented single-hop
+  `X-Forwarded-For` — if the IP doesn't match, increase the number and retest, then
+  remove the debug route.

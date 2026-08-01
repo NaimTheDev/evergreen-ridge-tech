@@ -2,10 +2,15 @@ services:
   - type: web
     name: evergreen-ridge-tech-server
     runtime: node
-    rootDir: server
+    region: oregon
     plan: free
+    rootDir: server
     buildCommand: npm install && npm run build
     startCommand: npm start
+    autoDeployTrigger: commit
+    buildFilter:
+      paths:
+        - server/**
     envVars:
       - key: RESEND_API_KEY
         sync: false
