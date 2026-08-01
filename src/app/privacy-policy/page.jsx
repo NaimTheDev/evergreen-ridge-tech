@@ -85,15 +85,15 @@ const PrivacyPolicyPage = () => {
                 Form and estimator submissions are delivered to us by email
                 using{" "}
                 <a
-                  href="https://www.emailjs.com"
+                  href="https://www.resend.com"
                   className="text-primary underline"
                   target="_blank"
                   rel="noreferrer"
                 >
-                  EmailJS
+                  Resend
                 </a>
                 , a third-party email delivery service that transmits the
-                message from your browser to our inbox. EmailJS processes
+                message from your browser to our inbox. Resend processes
                 this data solely to deliver the email and does not use it for
                 any other purpose on our behalf. We do not share your
                 information with any other third party except as required by

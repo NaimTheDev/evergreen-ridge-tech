@@ -44,7 +44,7 @@ estimateRouter.post("/", async (req, res) => {
 
     return res.status(200).json({ ok: true });
   } catch (err) {
-    console.error("Failed to send estimate emails", err);
+    //console.error("Failed to send estimate emails", err);
     return res.status(502).json({ ok: false, error: "Failed to send email." });
   }
 });
