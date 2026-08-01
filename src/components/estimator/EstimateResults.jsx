@@ -7,25 +7,10 @@ import {
   TIMELINE_OPTIONS,
   BUDGET_RANGES,
 } from "@/lib/estimator/pricing";
-import { sendEmail, EMAILJS_TEMPLATES } from "@/lib/emailjs";
+import { submitEstimate } from "@/lib/apiClient";
 import Button from "@/components/Button";
 
 const labelFor = (list, key) => list.find((item) => item.key === key)?.label ?? key;
-
-function buildBreakdownHtml(estimate) {
-  return [...estimate.breakdown, ...estimate.bufferLines]
-    .map(
-      (item) =>
-        `<tr><td style="padding:6px 8px;border-bottom:1px solid #E6ECE9;">${item.label}</td><td style="padding:6px 8px;border-bottom:1px solid #E6ECE9;text-align:right;">${item.hours}</td><td style="padding:6px 8px;border-bottom:1px solid #E6ECE9;text-align:right;">${formatCurrency(item.cost)}</td></tr>`
-    )
-    .join("");
-}
-
-function buildBreakdownText(estimate) {
-  return [...estimate.breakdown, ...estimate.bufferLines]
-    .map((item) => `- ${item.label}: ${item.hours} hrs (${formatCurrency(item.cost)})`)
-    .join("\n");
-}
 
 const EstimateResults = ({
   estimate,
@@ -50,29 +35,19 @@ const EstimateResults = ({
     setStatus("sending");
 
     try {
-      const shared = {
+      await submitEstimate({
+        name,
+        email,
         project_type: labelFor(PROJECT_TYPES, projectType),
         complexity: labelFor(COMPLEXITY_LEVELS, complexity),
         timeline: labelFor(TIMELINE_OPTIONS, timeline),
         budget: labelFor(BUDGET_RANGES, budget),
-        notes: notes || "—",
+        notes: notes || "",
         total_hours: estimate.totalHours,
-        total_low: formatCurrency(estimate.totalCostLow),
-        total_high: formatCurrency(estimate.totalCostHigh),
-      };
-
-      await sendEmail(EMAILJS_TEMPLATES.estimateVisitor, {
-        ...shared,
-        to_email: email,
-        name,
-        breakdown_html: buildBreakdownHtml(estimate),
-      });
-
-      await sendEmail(EMAILJS_TEMPLATES.estimateLead, {
-        ...shared,
-        visitor_name: name,
-        visitor_email: email,
-        breakdown_text: buildBreakdownText(estimate),
+        total_low: estimate.totalCostLow,
+        total_high: estimate.totalCostHigh,
+        breakdown: estimate.breakdown.map(({ label, hours, cost }) => ({ label, hours, cost })),
+        bufferLines: estimate.bufferLines.map(({ label, hours, cost }) => ({ label, hours, cost })),
       });
 
       setStatus("sent");

@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import FadeIn from "./FadeIn";
 import TextInput from "./TextInput";
 import Button from "./Button";
-import { sendEmail, EMAILJS_TEMPLATES } from "@/lib/emailjs";
+import { submitContactForm } from "@/lib/apiClient";
 
 
 const ContactForm = () => {
@@ -25,7 +25,7 @@ const ContactForm = () => {
     setStatus("sending");
 
     try {
-      await sendEmail(EMAILJS_TEMPLATES.contact, {
+      await submitContactForm({
         name: data.get("name"),
         email: data.get("email"),
         company: data.get("company"),

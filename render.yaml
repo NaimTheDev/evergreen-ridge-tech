@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: evergreen-ridge-tech-server
+    runtime: node
+    rootDir: server
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: RESEND_API_KEY
+        sync: false
+      - key: FROM_EMAIL
+        sync: false
+      - key: CONTACT_TO_EMAIL
+        value: naim@evergreenridgetech.com
+      - key: ALLOWED_ORIGINS
+        value: https://www.evergreenridgetech.com,https://evergreenridgetech.com
