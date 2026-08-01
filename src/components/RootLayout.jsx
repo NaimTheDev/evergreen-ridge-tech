@@ -97,10 +97,10 @@ const Navigation = () => {
         <NavigationItem href="/work">Our Work</NavigationItem>
         <NavigationItem href="/about">About Us</NavigationItem>
       </NavigationRow>
-      {/* <NavigationRow>
-        <NavigationItem href="/process">Our Process</NavigationItem>
-        <NavigationItem href="/blog">Blog</NavigationItem>
-      </NavigationRow> */}
+      <NavigationRow>
+        <NavigationItem href="/cost-estimator">Cost Estimator</NavigationItem>
+        <NavigationItem href="/contact">Contact Us</NavigationItem>
+      </NavigationRow>
     </nav>
   );
 };
