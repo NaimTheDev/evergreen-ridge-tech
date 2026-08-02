@@ -9,8 +9,22 @@ import {
 } from "@/lib/estimator/pricing";
 import { submitEstimate } from "@/lib/apiClient";
 import Button from "@/components/Button";
+import SendingOverlay from "./SendingOverlay";
 
 const labelFor = (list, key) => list.find((item) => item.key === key)?.label ?? key;
+
+/*
+  The server now accepts the submission in a few milliseconds, which would flash
+  the overlay open and shut. Hold it briefly instead — the spinner's rotation is
+  1.2s, so ~1s lets it get most of the way round rather than snapping mid-turn.
+*/
+const MIN_OVERLAY_MS = 1000;
+
+const errorMessageFor = (err) => {
+  if (err?.status === 503) return "Our server is busy right now.";
+  if (err?.status === 429) return "You've submitted a few times already.";
+  return "Something went wrong on our end.";
+};
 
 const EstimateResults = ({
   estimate,
@@ -26,6 +40,8 @@ const EstimateResults = ({
   showEmailForm,
 }) => {
   const [status, setStatus] = useState("idle");
+  const [overlayOpen, setOverlayOpen] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   async function handleSend() {
     if (!name || !email) {
@@ -33,6 +49,14 @@ const EstimateResults = ({
       return;
     }
     setStatus("sending");
+    setOverlayOpen(true);
+
+    const startedAt = Date.now();
+    const settle = async (next) => {
+      const remaining = MIN_OVERLAY_MS - (Date.now() - startedAt);
+      if (remaining > 0) await new Promise((r) => setTimeout(r, remaining));
+      setStatus(next);
+    };
 
     try {
       await submitEstimate({
@@ -50,14 +74,24 @@ const EstimateResults = ({
         bufferLines: estimate.bufferLines.map(({ label, hours, cost }) => ({ label, hours, cost })),
       });
 
-      setStatus("sent");
+      await settle("sent");
     } catch (err) {
-      setStatus("error");
+      setErrorMessage(errorMessageFor(err));
+      await settle("error");
     }
   }
 
   return (
     <div className="rounded-4xl border border-border bg-primary p-8 text-primary-foreground sm:p-10">
+      {/* Renders through a portal, so it escapes this panel and covers the page. */}
+      <SendingOverlay
+        status={overlayOpen ? status : "idle"}
+        email={email}
+        errorMessage={errorMessage}
+        onClose={() => setOverlayOpen(false)}
+        onRetry={handleSend}
+      />
+
       <h2 className="font-display text-base font-semibold">Your draft estimate</h2>
 
       <dl className="mt-6 space-y-3 text-sm">
@@ -131,12 +165,13 @@ const EstimateResults = ({
             )}
             {status === "sent" && (
               <p className="text-xs text-green-200">
-                Sent! Check your inbox for the draft estimate.
+                On its way — check your inbox in a minute.
               </p>
             )}
             {status === "error" && (
               <p className="text-xs text-red-200">
-                Something went wrong. Please email contact@evergreenridgetech.com directly.
+                {errorMessage || "Something went wrong."} Please email
+                contact@evergreenridgetech.com directly.
               </p>
             )}
           </div>

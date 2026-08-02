@@ -14,7 +14,9 @@ async function postJson(path, body) {
   });
 
   if (!response.ok) {
-    throw new Error(`Request to ${path} failed with status ${response.status}`);
+    const error = new Error(`Request to ${path} failed with status ${response.status}`);
+    error.status = response.status;
+    throw error;
   }
 
   return response.json();
