@@ -33,7 +33,7 @@ jobs:
       - name: Build (Next export -> out/)
         run: npm run build
         env:
-          backend-api-url: ${{ vars.API_BASE_URL }}
+          NEXT_PUBLIC_BACKEND_API_URL: ${{ vars.API_BASE_URL }}
 
       - name: Verify export output
         run: test -f out/index.html

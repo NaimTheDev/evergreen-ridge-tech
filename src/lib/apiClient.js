@@ -1,9 +1,9 @@
-const API_BASE_URL = process.env.backend-api-url;
+const API_BASE_URL = process.env.NEXT_PUBLIC_BACKEND_API_URL;
 
 async function postJson(path, body) {
   if (!API_BASE_URL) {
     throw new Error(
-      "backend-api-url is not configured. See docs/RENDER_BACKEND_SETUP.md."
+      "NEXT_PUBLIC_BACKEND_API_URL is not configured. See docs/RENDER_BACKEND_SETUP.md."
     );
   }
 
