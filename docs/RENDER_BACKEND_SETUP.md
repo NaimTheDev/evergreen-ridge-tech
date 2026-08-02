@@ -59,14 +59,14 @@ Render assigns the service a URL like `https://evergreen-ridge-tech-server.onren
 ## 3. Point the frontend at the deployed API
 
 **Local development** — copy `.env.local.example` to `.env.local` and set
-`NEXT_PUBLIC_API_BASE_URL` to `http://localhost:3001` (or whatever `PORT` you run
+`backend-api-url` to `http://localhost:3001` (or whatever `PORT` you run
 `server` on locally).
 
 **Production build (GitHub Actions)** — add a repository **variable** (not secret,
 since it's just a public URL) named `API_BASE_URL` under **Settings → Secrets and
 variables → Actions → Variables**, set to your Render service's URL. The deploy
 workflow (`.github/workflows/deploy.yml`) reads it into the static build as
-`NEXT_PUBLIC_API_BASE_URL`.
+`backend-api-url`.
 
 ## 4. Run the backend locally
 
@@ -80,7 +80,7 @@ npm run dev             # http://localhost:3001
 ## 5. Test
 
 With the backend running locally (or against the deployed Render URL) and
-`NEXT_PUBLIC_API_BASE_URL` pointed at it, run `npm run dev` in the repo root and:
+`backend-api-url` pointed at it, run `npm run dev` in the repo root and:
 
 - Submit the contact form — confirm the notification email arrives at
   `naim@evergreenridgetech.com`.
