@@ -40,6 +40,12 @@ export default function Home() {
                 Support & maintenance
               </span>
             </div>
+            <div className="mt-8 flex flex-wrap items-center gap-4">
+              <Button href="/cost-estimator">Get a free cost estimate</Button>
+              <Button href="/contact" className="!bg-card !text-card-foreground border border-border hover:!bg-background">
+                Talk to us
+              </Button>
+            </div>
           </FadeIn>
           <FadeIn className="relative">
             <div className="rounded-4xl border border-border bg-card p-8 shadow-[0_20px_60px_rgba(15,61,46,0.12)]">
@@ -99,6 +105,28 @@ export default function Home() {
             </div>
           </FadeIn>
         </div>
+      </Container>
+
+      <Container className="mt-20 sm:mt-28">
+        <FadeIn>
+          <div className="flex flex-col items-start gap-6 rounded-4xl border border-border bg-card p-10 lg:flex-row lg:items-center lg:justify-between">
+            <div className="max-w-2xl">
+              <p className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">
+                Cost estimator
+              </p>
+              <h2 className="mt-3 font-display text-3xl font-semibold text-foreground sm:text-4xl">
+                Not sure what your project costs?
+              </h2>
+              <p className="mt-4 text-base text-muted-foreground">
+                Answer a few questions and we&apos;ll email you an instant,
+                non-binding draft estimate — no obligation, no waiting.
+              </p>
+            </div>
+            <Button href="/cost-estimator" className="shrink-0">
+              Get your estimate
+            </Button>
+          </div>
+        </FadeIn>
       </Container>
 
       <Container className="mt-20 sm:mt-28">
