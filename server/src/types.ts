@@ -28,3 +28,10 @@ export interface EstimatePayload {
   bufferLines: BreakdownLine[];
   _gotcha?: string;
 }
+
+export interface Proposal {
+  overview: string;
+  approach: string;
+  investmentNote: string;
+  nextSteps: string;
+}

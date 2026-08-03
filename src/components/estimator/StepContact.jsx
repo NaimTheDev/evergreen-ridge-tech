@@ -40,7 +40,7 @@ const StepContact = ({
         className="block text-sm font-semibold text-foreground"
         htmlFor="estimator-notes"
       >
-        Anything else we should know?
+        Tell us about your project
       </label>
       <textarea
         id="estimator-notes"
@@ -48,7 +48,7 @@ const StepContact = ({
         onChange={(e) => onNotesChange(e.target.value)}
         rows={3}
         className="mt-2 block w-full rounded-2xl border border-border bg-transparent px-4 py-3 text-sm text-foreground ring-4 ring-transparent transition focus:border-primary focus:outline-none focus:ring-primary/10"
-        placeholder="Optional"
+        placeholder="Goals, must-haves, examples you like — the more you share, the better your proposal. (Optional)"
       />
     </div>
 

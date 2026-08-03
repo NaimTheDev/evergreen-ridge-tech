@@ -1,4 +1,4 @@
-import { BreakdownLine, ContactPayload, EstimatePayload } from "../types";
+import { BreakdownLine, ContactPayload, EstimatePayload, Proposal } from "../types";
 
 const LOGO_URL = "https://www.evergreenridgetech.com/email/logo.png";
 
@@ -48,15 +48,31 @@ export function buildContactNotificationHtml(payload: ContactPayload) {
   `;
 }
 
-export function buildEstimateVisitorHtml(payload: EstimatePayload) {
+function proposalSectionsHtml(proposal: Proposal) {
+  return `
+    <p>${nl2br(proposal.overview)}</p>
+    <h2 style="font-size: 15px; margin-top: 20px;">Recommended Approach</h2>
+    <p>${nl2br(proposal.approach)}</p>
+    <h2 style="font-size: 15px; margin-top: 20px;">Investment</h2>
+    <p>${nl2br(proposal.investmentNote)}</p>
+    <h2 style="font-size: 15px; margin-top: 20px;">Next Steps</h2>
+    <p>${nl2br(proposal.nextSteps)}</p>
+  `;
+}
+
+export function buildEstimateVisitorHtml(payload: EstimatePayload, proposal: Proposal | null = null) {
   return `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #121212;">
       <img src="${LOGO_URL}" alt="Evergreen Ridge Technology" style="height: 60px; margin-bottom: 24px;" />
       <h1 style="font-size: 20px;">Your draft project estimate</h1>
       <p>Hi ${escapeHtml(payload.name)},</p>
-      <p>Thanks for using our Cost Estimator. Here's a draft estimate for a <strong>${escapeHtml(
-        payload.project_type
-      )}</strong> project based on what you selected:</p>
+      ${
+        proposal
+          ? proposalSectionsHtml(proposal)
+          : `<p>Thanks for using our Cost Estimator. Here's a draft estimate for a <strong>${escapeHtml(
+              payload.project_type
+            )}</strong> project based on what you selected:</p>`
+      }
 
       <table style="width: 100%; border-collapse: collapse; margin: 16px 0;">
         <thead>
@@ -71,9 +87,13 @@ export function buildEstimateVisitorHtml(payload: EstimatePayload) {
         </tbody>
       </table>
 
-      <p style="font-size: 18px; font-weight: bold;">
+      ${
+        !proposal
+          ? `<p style="font-size: 18px; font-weight: bold;">
         Estimated total: ${formatCurrency(payload.total_low)} – ${formatCurrency(payload.total_high)}
-      </p>
+      </p>`
+          : ""
+      }
 
       <p style="font-size: 12px; color: #64748B;">
         This is a non-binding, informational draft estimate only — not a quote or contract.
@@ -89,10 +109,18 @@ export function buildEstimateVisitorHtml(payload: EstimatePayload) {
   `;
 }
 
-export function buildEstimateLeadHtml(payload: EstimatePayload) {
+export function buildEstimateLeadHtml(
+  payload: EstimatePayload,
+  { proposalFailed = false }: { proposalFailed?: boolean } = {}
+) {
   return `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #121212;">
       <h1 style="font-size: 18px;">New Cost Estimator submission</h1>
+      ${
+        proposalFailed
+          ? `<p style="background:#FEF3C7;border-left:4px solid #D97706;padding:12px;font-weight:bold;">AI proposal generation failed for this lead — manual follow-up may help.</p>`
+          : ""
+      }
       <p><strong>Name:</strong> ${escapeHtml(payload.name)}</p>
       <p><strong>Email:</strong> ${escapeHtml(payload.email)}</p>
       <p><strong>Project type:</strong> ${escapeHtml(payload.project_type)}</p>

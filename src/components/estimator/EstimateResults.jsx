@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import {
-  formatCurrency,
   PROJECT_TYPES,
   COMPLEXITY_LEVELS,
   TIMELINE_OPTIONS,
@@ -134,13 +133,14 @@ const EstimateResults = ({
       {estimate.breakdown.length > 0 && (
         <div className="mt-6 border-t border-white/10 pt-6">
           <p className="text-xs uppercase tracking-wide text-primary-foreground/60">
-            Estimated total
+            Estimated scope
           </p>
-          <p className="mt-1 font-display text-3xl font-semibold">
-            {formatCurrency(estimate.totalCostLow)} – {formatCurrency(estimate.totalCostHigh)}
+          <p className="mt-1 font-display text-xl font-semibold">
+            ~{estimate.totalHours} hours
           </p>
           <p className="mt-1 text-xs text-primary-foreground/60">
-            Ballpark for your build — most projects land inside this range after a quick call.
+            Add your details and we&apos;ll put together a full proposal — pricing included —
+            and email it to you.
           </p>
         </div>
       )}

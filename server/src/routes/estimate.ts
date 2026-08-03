@@ -2,7 +2,7 @@ import { randomUUID } from "node:crypto";
 import { Router } from "express";
 import { sendWithRetry, FROM_EMAIL, CONTACT_TO_EMAIL } from "../email/resend";
 import { buildEstimateLeadHtml, buildEstimateVisitorHtml } from "../email/templates";
-import { generateEstimatePdf } from "../pdf/generateEstimatePdf";
+import { runProposalPipeline } from "../ai/proposalPipeline";
 import { log, maskEmail, timed } from "../lib/log";
 import { pendingCount, runInBackground } from "../lib/jobs";
 import { EstimatePayload } from "../types";
@@ -32,18 +32,11 @@ const PDF_FAILED_BANNER =
 async function processEstimate(body: EstimatePayload, jobId: string) {
   const fields = { jobId, email: maskEmail(body.email) };
 
-  // A render failure must not take the lead down with it, so it degrades to
-  // null rather than throwing out of the job.
-  let pdfAttachment: { filename: string; content: string } | null = null;
-  try {
-    const pdfBuffer = await timed("pdf.render", fields, () => generateEstimatePdf(body));
-    pdfAttachment = {
-      filename: "evergreen-ridge-draft-estimate.pdf",
-      content: pdfBuffer.toString("base64"),
-    };
-    log("info", "pdf.size", { ...fields, bytes: pdfBuffer.length });
-  } catch {
-    // Already logged by timed() as pdf.render.fail.
+  const { proposal, pdfAttachment } = await timed("proposal.pipeline", fields, () =>
+    runProposalPipeline(body, jobId)
+  );
+  if (pdfAttachment) {
+    log("info", "pdf.size", { ...fields, bytes: Buffer.byteLength(pdfAttachment.content, "base64") });
   }
 
   /*
@@ -59,8 +52,8 @@ async function processEstimate(body: EstimatePayload, jobId: string) {
         replyTo: body.email,
         subject: `New cost estimator lead: ${body.name}`,
         html: pdfAttachment
-          ? buildEstimateLeadHtml(body)
-          : PDF_FAILED_BANNER + buildEstimateLeadHtml(body),
+          ? buildEstimateLeadHtml(body, { proposalFailed: !proposal })
+          : PDF_FAILED_BANNER + buildEstimateLeadHtml(body, { proposalFailed: !proposal }),
         ...(pdfAttachment ? { attachments: [pdfAttachment] } : {}),
       },
       { idempotencyKey: `${jobId}-lead`, jobId }
@@ -80,7 +73,7 @@ async function processEstimate(body: EstimatePayload, jobId: string) {
         from: FROM_EMAIL,
         to: body.email,
         subject: "Your Evergreen Ridge Technology project estimate (draft)",
-        html: buildEstimateVisitorHtml(body),
+        html: buildEstimateVisitorHtml(body, proposal),
         attachments: [pdfAttachment],
       },
       { idempotencyKey: `${jobId}-visitor`, jobId }
