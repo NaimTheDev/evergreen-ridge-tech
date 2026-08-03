@@ -42,6 +42,7 @@ const EstimateResults = ({
   const [status, setStatus] = useState("idle");
   const [overlayOpen, setOverlayOpen] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [showBreakdown, setShowBreakdown] = useState(false);
 
   async function handleSend() {
     if (!name || !email) {
@@ -109,14 +110,25 @@ const EstimateResults = ({
       </dl>
 
       {estimate.breakdown.length > 0 && (
-        <dl className="mt-4 space-y-2 border-t border-white/10 pt-4 text-xs text-primary-foreground/70">
-          {estimate.bufferLines.map((item) => (
-            <div key={item.key} className="flex items-center justify-between gap-4">
-              <dt>{item.label}</dt>
-              <dd>{item.hours} hrs</dd>
-            </div>
-          ))}
-        </dl>
+        <div className="mt-4 border-t border-white/10 pt-4">
+          <button
+            type="button"
+            onClick={() => setShowBreakdown((v) => !v)}
+            className="text-xs text-primary-foreground/70 underline decoration-dotted underline-offset-2 hover:text-primary-foreground"
+          >
+            Includes discovery, QA, PM & deployment — {showBreakdown ? "hide the math" : "see the math"} {showBreakdown ? "‹" : "›"}
+          </button>
+          {showBreakdown && (
+            <dl className="mt-3 space-y-2 text-xs text-primary-foreground/70">
+              {estimate.bufferLines.map((item) => (
+                <div key={item.key} className="flex items-center justify-between gap-4">
+                  <dt>{item.label}</dt>
+                  <dd>{item.hours} hrs</dd>
+                </div>
+              ))}
+            </dl>
+          )}
+        </div>
       )}
 
       {estimate.breakdown.length > 0 && (
@@ -128,10 +140,18 @@ const EstimateResults = ({
             {formatCurrency(estimate.totalCostLow)} – {formatCurrency(estimate.totalCostHigh)}
           </p>
           <p className="mt-1 text-xs text-primary-foreground/60">
-            ~{estimate.totalHours} hours · non-binding draft
+            Ballpark for your build — most projects land inside this range after a quick call.
           </p>
         </div>
       )}
+
+      <p className="mt-4 text-xs text-primary-foreground/60">
+        Rather talk it through?{" "}
+        <a href="#contact" className="underline hover:text-primary-foreground">
+          Contact us
+        </a>{" "}
+        — no form required.
+      </p>
 
       {showEmailForm && (
         <div className="mt-8 border-t border-white/10 pt-6">
