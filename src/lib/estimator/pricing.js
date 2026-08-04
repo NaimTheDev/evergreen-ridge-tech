@@ -43,9 +43,9 @@ export const TIMELINE_OPTIONS = [
 ];
 
 export const BUDGET_RANGES = [
-  { key: "starter", label: "Starter ($2,000 – $5,000)" },
-  { key: "professional", label: "Professional ($5,000 – $15,000)" },
-  { key: "enterprise", label: "Enterprise ($15,000 – $50,000)" },
+  { key: "starter", label: "Starter" },
+  { key: "professional", label: "Professional" },
+  { key: "enterprise", label: "Enterprise" },
   { key: "custom", label: "Custom / not sure yet" },
 ];
 

@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 import { Document, Page, Text, View, Image, StyleSheet } from "@react-pdf/renderer";
-import { EstimatePayload } from "../types";
+import { EstimatePayload, Proposal } from "../types";
 import { formatCurrency } from "../email/templates";
 
 // In production, esbuild bundles everything into a single dist/index.js, so
@@ -49,9 +49,18 @@ const styles = StyleSheet.create({
   colCost: { flex: 1, textAlign: "right" },
   disclaimer: { marginTop: 24, fontSize: 9, color: "#64748B", lineHeight: 1.4 },
   footer: { marginTop: 24, fontSize: 9, color: "#94A3B8" },
+  proposalSection: { marginBottom: 12 },
+  proposalHeading: { fontSize: 11, fontWeight: 700, color: "#0C3428", marginBottom: 3 },
+  proposalBody: { fontSize: 10, lineHeight: 1.4, color: "#121212" },
 });
 
-const EstimateDocument = ({ estimate }: { estimate: EstimatePayload }) => (
+const EstimateDocument = ({
+  estimate,
+  proposal = null,
+}: {
+  estimate: EstimatePayload;
+  proposal?: Proposal | null;
+}) => (
   <Document>
     <Page size="A4" style={styles.page}>
       <Image src={LOGO_PATH} style={styles.logo} />
@@ -59,6 +68,27 @@ const EstimateDocument = ({ estimate }: { estimate: EstimatePayload }) => (
       <Text style={styles.subtitle}>
         Prepared for {estimate.name} — {estimate.project_type} · {new Date().toLocaleDateString("en-US")}
       </Text>
+
+      {proposal && (
+        <View>
+          <View style={styles.proposalSection}>
+            <Text style={styles.proposalHeading}>Overview</Text>
+            <Text style={styles.proposalBody}>{proposal.overview}</Text>
+          </View>
+          <View style={styles.proposalSection}>
+            <Text style={styles.proposalHeading}>Recommended Approach</Text>
+            <Text style={styles.proposalBody}>{proposal.approach}</Text>
+          </View>
+          <View style={styles.proposalSection}>
+            <Text style={styles.proposalHeading}>Investment</Text>
+            <Text style={styles.proposalBody}>{proposal.investmentNote}</Text>
+          </View>
+          <View style={styles.proposalSection}>
+            <Text style={styles.proposalHeading}>Next Steps</Text>
+            <Text style={styles.proposalBody}>{proposal.nextSteps}</Text>
+          </View>
+        </View>
+      )}
 
       <View style={styles.summaryRow}>
         <View style={styles.summaryBox}>
