@@ -3,6 +3,7 @@ import Container from "@/components/Container";
 import FadeIn, { FadeInStagger } from "@/components/FadeIn";
 import PageIntro from "@/components/PageIntro";
 import PhoneFrame from "@/components/PhoneFrame";
+import BrandMark from "@/components/BrandMark";
 import ContactSection from "@/components/ContactSection";
 import mentorDirectory from "@/images/case-studies/connectly/mentor-directory.png";
 import homeDashboard from "@/images/case-studies/connectly/home-dashboard.png";
@@ -33,12 +34,39 @@ const facts = [
   { label: "Scheduling", value: "Mentors' own calendars" },
 ];
 
+const partners = [
+  {
+    key: "calendly",
+    name: "Calendly",
+    role: "Scheduling",
+  },
+  {
+    key: "zoom",
+    name: "Zoom",
+    role: "Video sessions",
+  },
+  {
+    key: "stripe",
+    name: "Stripe",
+    role: "Payments",
+    status: "In build",
+  },
+];
+
 const integrations = [
   {
     name: "Calendly",
+    mark: "calendly",
     role: "Real availability, real bookings",
     description:
       "Mentors connect the calendar they already keep, once, through a secure sign-in — no copying keys or pasting links. From then on the app shows only times they're genuinely free, books the session on the mentee's behalf, and offers reschedule and cancel options on the confirmation. If a session changes anywhere else, Connectly hears about it and updates itself.",
+  },
+  {
+    name: "Zoom",
+    mark: "zoom",
+    role: "The room the session happens in",
+    description:
+      "Booking a session creates the video meeting automatically, and the link lands on the mentee's home screen behind a single Join Call button. Video links take a moment to be created, so the app waits for it rather than showing an empty button — and if one ever fails to appear, the session is flagged instead of quietly leaving someone staring at a dead link.",
   },
   {
     name: "Secure sign-in",
@@ -65,6 +93,15 @@ const integrations = [
       "The credentials that connect to a mentor's calendar never touch anyone's phone. A small, private backend holds them, does the talking, and hands the app back only what it needs: open times and confirmations. It also means the scheduling provider can be swapped later without shipping a new version of the app.",
   },
 ];
+
+const upcoming = {
+  name: "Stripe",
+  mark: "stripe",
+  role: "Paid sessions and paid chats",
+  status: "In build",
+  description:
+    "Mentors already name their price during setup — one rate for a video session, another for chat — and mentees already see it before they book. The next release closes that loop: paying for a session at the moment it's booked, and paying for chat access the same way, with payouts landing in the mentor's account without anyone sending an invoice. The groundwork is deliberate — pricing, roles, and the private server layer were all built with this step in mind.",
+};
 
 const ConnectlyCaseStudyPage = () => {
   return (
@@ -387,13 +424,46 @@ const ConnectlyCaseStudyPage = () => {
           </p>
         </FadeIn>
 
-        <FadeInStagger className="mt-12">
+        <FadeIn className="mt-10">
+          <ul
+            role="list"
+            className="flex flex-wrap items-center gap-4 sm:gap-6"
+            aria-label="Services Connectly integrates with"
+          >
+            {partners.map((partner) => (
+              <li
+                key={partner.key}
+                className="flex items-center gap-4 rounded-full border border-border bg-card py-3 pl-4 pr-6"
+              >
+                <span className="flex h-11 w-11 flex-none items-center justify-center rounded-full bg-muted text-foreground">
+                  <BrandMark name={partner.key} className="h-6 w-6" />
+                </span>
+                <span>
+                  <span className="block font-display text-base font-semibold leading-tight text-foreground">
+                    {partner.name}
+                  </span>
+                  <span className="block text-sm leading-tight text-muted-foreground">
+                    {partner.status ? `${partner.role} · ${partner.status}` : partner.role}
+                  </span>
+                </span>
+              </li>
+            ))}
+          </ul>
+        </FadeIn>
+
+        <FadeInStagger className="mt-10">
           <ul role="list" className="grid gap-6 lg:grid-cols-2">
             {integrations.map((integration) => (
               <li key={integration.name} className="flex">
                 <FadeIn className="w-full rounded-4xl border border-border bg-card p-8">
                   <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-                    <h3 className="font-display text-xl font-semibold text-foreground">
+                    <h3 className="flex items-center gap-3 font-display text-xl font-semibold text-foreground">
+                      {integration.mark && (
+                        <BrandMark
+                          name={integration.mark}
+                          className="h-5 w-5 flex-none text-muted-foreground"
+                        />
+                      )}
                       {integration.name}
                     </h3>
                     <p className="text-sm font-semibold text-muted-foreground">
@@ -408,6 +478,29 @@ const ConnectlyCaseStudyPage = () => {
             ))}
           </ul>
         </FadeInStagger>
+
+        <FadeIn className="mt-6">
+          <div className="rounded-4xl border border-dashed border-border bg-muted/40 p-8">
+            <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-3">
+              <h3 className="flex items-center gap-3 font-display text-xl font-semibold text-foreground">
+                <BrandMark
+                  name={upcoming.mark}
+                  className="h-5 w-5 flex-none text-muted-foreground"
+                />
+                {upcoming.name}
+                <span className="rounded-full bg-primary px-3 py-1 text-xs font-semibold uppercase tracking-widest text-primary-foreground">
+                  {upcoming.status}
+                </span>
+              </h3>
+              <p className="text-sm font-semibold text-muted-foreground">
+                {upcoming.role}
+              </p>
+            </div>
+            <p className="mt-4 max-w-4xl text-base/7 text-muted-foreground">
+              {upcoming.description}
+            </p>
+          </div>
+        </FadeIn>
       </Container>
 
       {/* Takeaways */}
