@@ -120,20 +120,20 @@ const ConnectlyCaseStudyPage = () => {
       </PageIntro>
 
       <Container className="mt-16 sm:mt-20">
-        <FadeIn>
+        <FadeInStagger faster>
           <dl className="grid grid-cols-1 gap-8 rounded-4xl border border-border bg-card p-8 sm:grid-cols-2 sm:p-10 lg:grid-cols-4">
             {facts.map((fact) => (
-              <div key={fact.label}>
+              <FadeIn key={fact.label}>
                 <dt className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">
                   {fact.label}
                 </dt>
                 <dd className="mt-2 font-display text-lg font-semibold text-foreground">
                   {fact.value}
                 </dd>
-              </div>
+              </FadeIn>
             ))}
           </dl>
-        </FadeIn>
+        </FadeInStagger>
       </Container>
 
       {/* The intent */}
@@ -187,7 +187,7 @@ const ConnectlyCaseStudyPage = () => {
           </p>
         </FadeIn>
 
-        <FadeInStagger className="mt-14">
+        <FadeInStagger faster className="mt-14">
           <div className="grid gap-x-10 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
             <FadeIn>
               <PhoneFrame
@@ -294,10 +294,10 @@ const ConnectlyCaseStudyPage = () => {
           </h2>
         </FadeIn>
 
-        <FadeInStagger className="mt-12">
+        <FadeInStagger faster className="mt-12">
           <div className="grid gap-6 lg:grid-cols-2">
             <FadeIn>
-              <div className="h-full rounded-4xl border border-border bg-card p-8">
+              <div className="lift h-full rounded-4xl border border-border bg-card p-8 hover:border-accent/60 hover:shadow-[0_18px_50px_rgba(15,61,46,0.10)]">
                 <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
                   Start narrow
                 </p>
@@ -315,7 +315,7 @@ const ConnectlyCaseStudyPage = () => {
             </FadeIn>
 
             <FadeIn>
-              <div className="h-full rounded-4xl border border-border bg-card p-8">
+              <div className="lift h-full rounded-4xl border border-border bg-card p-8 hover:border-accent/60 hover:shadow-[0_18px_50px_rgba(15,61,46,0.10)]">
                 <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
                   Two audiences, one app
                 </p>
@@ -334,7 +334,7 @@ const ConnectlyCaseStudyPage = () => {
             </FadeIn>
 
             <FadeIn>
-              <div className="h-full rounded-4xl border border-border bg-card p-8">
+              <div className="lift h-full rounded-4xl border border-border bg-card p-8 hover:border-accent/60 hover:shadow-[0_18px_50px_rgba(15,61,46,0.10)]">
                 <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
                   Integrate, don&apos;t reinvent
                 </p>
@@ -353,7 +353,7 @@ const ConnectlyCaseStudyPage = () => {
             </FadeIn>
 
             <FadeIn>
-              <div className="h-full rounded-4xl border border-border bg-card p-8">
+              <div className="lift h-full rounded-4xl border border-border bg-card p-8 hover:border-accent/60 hover:shadow-[0_18px_50px_rgba(15,61,46,0.10)]">
                 <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
                   One look, everywhere
                 </p>
@@ -372,7 +372,7 @@ const ConnectlyCaseStudyPage = () => {
             </FadeIn>
 
             <FadeIn>
-              <div className="h-full rounded-4xl border border-border bg-card p-8">
+              <div className="lift h-full rounded-4xl border border-border bg-card p-8 hover:border-accent/60 hover:shadow-[0_18px_50px_rgba(15,61,46,0.10)]">
                 <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
                   Built once, runs twice
                 </p>
@@ -389,7 +389,7 @@ const ConnectlyCaseStudyPage = () => {
             </FadeIn>
 
             <FadeIn>
-              <div className="h-full rounded-4xl border border-border bg-card p-8">
+              <div className="lift h-full rounded-4xl border border-border bg-card p-8 hover:border-accent/60 hover:shadow-[0_18px_50px_rgba(15,61,46,0.10)]">
                 <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
                   Guardrails
                 </p>
@@ -433,9 +433,9 @@ const ConnectlyCaseStudyPage = () => {
             {partners.map((partner) => (
               <li
                 key={partner.key}
-                className="flex items-center gap-4 rounded-full border border-border bg-card py-3 pl-4 pr-6"
+                className="lift group flex items-center gap-4 rounded-full border border-border bg-card py-3 pl-4 pr-6 hover:border-accent/60"
               >
-                <span className="flex h-11 w-11 flex-none items-center justify-center rounded-full bg-muted text-foreground">
+                <span className="flex h-11 w-11 flex-none items-center justify-center rounded-full bg-muted text-foreground transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground motion-reduce:transition-none">
                   <BrandMark name={partner.key} className="h-6 w-6" />
                 </span>
                 <span>
@@ -451,11 +451,11 @@ const ConnectlyCaseStudyPage = () => {
           </ul>
         </FadeIn>
 
-        <FadeInStagger className="mt-10">
+        <FadeInStagger faster className="mt-10">
           <ul role="list" className="grid gap-6 lg:grid-cols-2">
             {integrations.map((integration) => (
               <li key={integration.name} className="flex">
-                <FadeIn className="w-full rounded-4xl border border-border bg-card p-8">
+                <FadeIn className="lift w-full rounded-4xl border border-border bg-card p-8 hover:border-accent/60 hover:shadow-[0_18px_50px_rgba(15,61,46,0.10)]">
                   <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
                     <h3 className="flex items-center gap-3 font-display text-xl font-semibold text-foreground">
                       {integration.mark && (
@@ -480,7 +480,7 @@ const ConnectlyCaseStudyPage = () => {
         </FadeInStagger>
 
         <FadeIn className="mt-6">
-          <div className="rounded-4xl border border-dashed border-border bg-muted/40 p-8">
+          <div className="lift rounded-4xl border border-dashed border-border bg-muted/40 p-8 hover:border-accent/60 hover:bg-muted/60">
             <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-3">
               <h3 className="flex items-center gap-3 font-display text-xl font-semibold text-foreground">
                 <BrandMark
@@ -514,8 +514,8 @@ const ConnectlyCaseStudyPage = () => {
               The fastest products to build are the ones that know what to leave
               out.
             </h2>
-            <div className="mt-10 grid gap-8 sm:grid-cols-3">
-              <div>
+            <FadeInStagger faster className="mt-10 grid gap-8 sm:grid-cols-3">
+              <FadeIn>
                 <p className="font-display text-lg font-semibold text-white">
                   Solve the drop-off, not the feature list
                 </p>
@@ -523,8 +523,8 @@ const ConnectlyCaseStudyPage = () => {
                   Finding where people give up — and designing that moment away
                   — did more for Connectly than any feature could have.
                 </p>
-              </div>
-              <div>
+              </FadeIn>
+              <FadeIn>
                 <p className="font-display text-lg font-semibold text-white">
                   Borrow the hard parts
                 </p>
@@ -532,8 +532,8 @@ const ConnectlyCaseStudyPage = () => {
                   Connecting to mature tools for scheduling and accounts freed
                   the entire budget to go toward the experience itself.
                 </p>
-              </div>
-              <div>
+              </FadeIn>
+              <FadeIn>
                 <p className="font-display text-lg font-semibold text-white">
                   Decide who it&apos;s for, early
                 </p>
@@ -541,8 +541,8 @@ const ConnectlyCaseStudyPage = () => {
                   Designing for mentors and mentees from day one kept one
                   audience from becoming an awkward afterthought.
                 </p>
-              </div>
-            </div>
+              </FadeIn>
+            </FadeInStagger>
           </div>
         </FadeIn>
       </Container>
@@ -552,9 +552,15 @@ const ConnectlyCaseStudyPage = () => {
           <p className="text-base text-muted-foreground">
             <Link
               href="/case-studies"
-              className="font-semibold text-foreground underline underline-offset-4"
+              className="group inline-flex items-center gap-2 font-semibold text-foreground underline underline-offset-4"
             >
-              ← Back to all case studies
+              <span
+                aria-hidden="true"
+                className="transition-transform duration-300 ease-out group-hover:-translate-x-1 motion-reduce:transform-none motion-reduce:transition-none"
+              >
+                ←
+              </span>
+              Back to all case studies
             </Link>
           </p>
         </FadeIn>

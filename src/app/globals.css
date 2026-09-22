@@ -74,3 +74,28 @@
 		color: rgb(var(--foreground));
 	}
 }
+
+@layer components {
+	/*
+		Shared hover motion for cards, tiles, and phone frames.
+		The movement is small and slow on purpose — it should read as depth,
+		not as an animation. Disabled entirely for reduced-motion users.
+	*/
+	.lift {
+		transition-property: transform, box-shadow, border-color, background-color;
+		transition-duration: 400ms;
+		transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+	}
+
+	.lift:hover {
+		transform: translateY(-4px);
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.lift,
+		.lift:hover {
+			transition: none;
+			transform: none;
+		}
+	}
+}

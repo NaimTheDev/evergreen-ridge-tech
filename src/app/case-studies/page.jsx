@@ -41,7 +41,7 @@ const CaseStudiesPage = () => {
         <div className="grid gap-8">
           {caseStudies.map((study) => (
             <FadeIn key={study.slug}>
-              <article className="overflow-hidden rounded-4xl border border-border bg-card">
+              <article className="lift group overflow-hidden rounded-4xl border border-border bg-card hover:border-accent/60 hover:shadow-[0_24px_60px_rgba(15,61,46,0.12)]">
                 <div className="grid items-center gap-10 p-8 sm:p-10 lg:grid-cols-[1fr_auto] lg:gap-16">
                   <div>
                     <p className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">
@@ -74,19 +74,25 @@ const CaseStudiesPage = () => {
                     </ul>
                     <Link
                       href={study.href}
-                      className="mt-8 inline-flex rounded-full bg-primary px-4 py-1.5 text-sm font-semibold text-primary-foreground transition hover:bg-primary/90"
+                      className="group/cta mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-4 py-1.5 text-sm font-semibold text-primary-foreground transition hover:bg-primary/90"
                     >
                       Read the case study
+                      <span
+                        aria-hidden="true"
+                        className="transition-transform duration-300 ease-out group-hover/cta:translate-x-1 motion-reduce:transform-none motion-reduce:transition-none"
+                      >
+                        &rarr;
+                      </span>
                     </Link>
                   </div>
 
-                  <div className="mx-auto w-full max-w-[14rem] rounded-[2.5rem] border border-border bg-background p-2 shadow-[0_20px_60px_rgba(15,61,46,0.12)]">
+                  <div className="mx-auto w-full max-w-[14rem] rounded-[2.5rem] border border-border bg-background p-2 shadow-[0_20px_60px_rgba(15,61,46,0.12)] transition-shadow duration-500 ease-out group-hover:shadow-[0_28px_70px_rgba(15,61,46,0.18)] motion-reduce:transition-none">
                     <div className="overflow-hidden rounded-[2rem]">
                       <Image
                         src={study.image}
                         alt={study.imageAlt}
                         sizes="(min-width: 1024px) 14rem, 60vw"
-                        className="h-auto w-full"
+                        className="h-auto w-full transition-transform duration-700 ease-out group-hover:scale-[1.02] motion-reduce:transform-none motion-reduce:transition-none"
                         priority
                       />
                     </div>
