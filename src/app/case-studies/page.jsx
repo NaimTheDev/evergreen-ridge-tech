@@ -39,7 +39,7 @@ const CaseStudiesPage = () => {
 
       <Container className="mt-16 sm:mt-20">
         <div className="grid gap-8">
-          {caseStudies.map((study) => (
+          {caseStudies.map((study, index) => (
             <FadeIn key={study.slug}>
               <article className="lift group overflow-hidden rounded-4xl border border-border bg-card hover:border-accent/60 hover:shadow-[0_24px_60px_rgba(15,61,46,0.12)]">
                 <div className="grid items-center gap-10 p-8 sm:p-10 lg:grid-cols-[1fr_auto] lg:gap-16">
@@ -93,7 +93,7 @@ const CaseStudiesPage = () => {
                         alt={study.imageAlt}
                         sizes="(min-width: 1024px) 14rem, 60vw"
                         className="h-auto w-full transition-transform duration-700 ease-out group-hover:scale-[1.02] motion-reduce:transform-none motion-reduce:transition-none"
-                        priority
+                        priority={index === 0}
                       />
                     </div>
                   </div>

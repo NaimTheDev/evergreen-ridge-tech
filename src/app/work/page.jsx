@@ -30,6 +30,26 @@ const WorkPage = () => {
           <div className="mt-8 grid gap-6">
             <FadeIn className="rounded-3xl bg-muted p-6">
               <h3 className="font-display text-lg font-semibold text-neutral-950">
+                App Cost Estimator — AI Scoping Tool
+              </h3>
+              <p className="mt-3 text-base text-neutral-600">
+                A web product that reads a project described in plain English
+                and returns an itemized estimate, with hours and cost on every
+                line.
+              </p>
+              <Link
+                href="/case-studies/app-cost-estimator"
+                className="mt-4 inline-flex text-sm font-semibold text-neutral-950 underline underline-offset-4"
+              >
+                Read the case study{" "}
+                <span aria-hidden="true" className="ml-1">
+                  &rarr;
+                </span>
+              </Link>
+            </FadeIn>
+
+            <FadeIn className="rounded-3xl bg-muted p-6">
+              <h3 className="font-display text-lg font-semibold text-neutral-950">
                 Connectly — Mentorship Booking App
               </h3>
               <p className="mt-3 text-base text-neutral-600">

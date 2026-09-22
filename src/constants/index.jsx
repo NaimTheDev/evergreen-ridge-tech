@@ -5,6 +5,10 @@ export const navigation = [
     title: "Work",
     links: [
       { title: "Connectly", href: "/case-studies/connectly" },
+      {
+        title: "App Cost Estimator",
+        href: "/case-studies/app-cost-estimator",
+      },
       { title: "Case studies", href: "/case-studies" },
       {
         title: (

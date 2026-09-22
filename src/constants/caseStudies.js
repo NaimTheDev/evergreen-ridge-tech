@@ -1,4 +1,5 @@
 import homeDashboard from "@/images/case-studies/connectly/home-dashboard.png";
+import featuresStep from "@/images/case-studies/app-cost-estimator/features-step.png";
 
 export const caseStudies = [
   {
@@ -13,6 +14,19 @@ export const caseStudies = [
     image: homeDashboard,
     imageAlt:
       "The Connectly home screen showing featured mentors and an upcoming call",
+  },
+  {
+    slug: "app-cost-estimator",
+    name: "App Cost Estimator",
+    href: "/case-studies/app-cost-estimator",
+    summary:
+      "A tool that reads a project described in plain English and returns an itemized estimate — hours and cost on every line, including the work most quotes forget to charge for.",
+    role: "Product design & full build",
+    platform: "Web app",
+    tags: ["Web product", "AI/LLM", "Estimating", "In-house product"],
+    image: featuresStep,
+    imageAlt:
+      "The App Cost Estimator features step, where each feature shows its own hour figure",
   },
 ];
 
