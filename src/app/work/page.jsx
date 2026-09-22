@@ -1,5 +1,6 @@
 import PageIntro from "@/components/PageIntro";
 import FadeIn from "@/components/FadeIn";
+import Link from "next/link";
 import React from "react";
 
 const WorkPage = () => {
@@ -27,6 +28,26 @@ const WorkPage = () => {
           </FadeIn>
 
           <div className="mt-8 grid gap-6">
+            <FadeIn className="rounded-3xl bg-muted p-6">
+              <h3 className="font-display text-lg font-semibold text-neutral-950">
+                Connectly — Mentorship Booking App
+              </h3>
+              <p className="mt-3 text-base text-neutral-600">
+                An iOS and Android app where mentees find a mentor, book real
+                time on their calendar, and keep the conversation going
+                afterward.
+              </p>
+              <Link
+                href="/case-studies/connectly"
+                className="mt-4 inline-flex text-sm font-semibold text-neutral-950 underline underline-offset-4"
+              >
+                Read the case study{" "}
+                <span aria-hidden="true" className="ml-1">
+                  &rarr;
+                </span>
+              </Link>
+            </FadeIn>
+
             <FadeIn className="rounded-3xl bg-muted p-6">
               <h3 className="font-display text-lg font-semibold text-neutral-950">
                 Healthcare Operations Platform
