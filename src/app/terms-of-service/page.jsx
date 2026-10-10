@@ -47,7 +47,7 @@ const TermsOfServicePage = () => {
               </p>
             </Section>
 
-            <Section title="Cost Estimator — non-binding draft only">
+            <Section title="Cost Estimator: non-binding draft only">
               <p>
                 The Cost Estimator tool on this site produces an automated,{" "}
                 <strong className="text-foreground">
@@ -79,9 +79,9 @@ const TermsOfServicePage = () => {
 
             <Section title="Intellectual property">
               <p>
-                All content on this website — including text, graphics, the
+                All content on this website, including text, graphics, the
                 Evergreen Ridge Technology name and logo, and the Cost
-                Estimator tool itself — is owned by Evergreen Ridge
+                Estimator tool itself, is owned by Evergreen Ridge
                 Technologies LLC unless otherwise noted, and may not be
                 copied or reused without our written permission.
               </p>

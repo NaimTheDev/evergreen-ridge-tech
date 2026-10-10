@@ -119,7 +119,7 @@ export default function Home() {
               </h2>
               <p className="mt-4 text-base text-muted-foreground">
                 Answer a few questions and we&apos;ll email you an instant,
-                non-binding draft estimate — no obligation, no waiting.
+                non-binding draft estimate. No obligation, no waiting.
               </p>
             </div>
             <Button href="/cost-estimator" className="shrink-0">
@@ -140,10 +140,10 @@ export default function Home() {
                 Built for scale, engineered for reliability.
               </h2>
               <p className="mt-4 text-base text-muted-foreground">
-                We align every engagement to your business goals, technical
-                standards, and measurable outcomes. Our team integrates with
-                your stakeholders to deliver technical excellence without
-                disruption.
+                Every project starts with what your business needs and how
+                you&apos;ll measure success. We work alongside your team and
+                follow your technical standards, so new software lands without
+                disrupting the work already underway.
               </p>
               <div className="mt-6">
                 <Button href="/contact">Start a project</Button>

@@ -16,7 +16,7 @@ import Button from "@/components/Button";
 */
 const STAGES = [
   "Sending your details",
-  "Still working — our server may be waking up",
+  "Still working. Our server may be waking up",
   "Almost there, thanks for waiting!",
 ];
 
@@ -222,8 +222,8 @@ const SendingOverlay = ({ status, email, errorMessage, onClose, onRetry }) => {
                         to <span className="font-semibold text-foreground">{email}</span>
                       </>
                     ) : null}
-                    . It usually lands within a minute — check your spam folder if it
-                    doesn&apos;t.
+                    . It usually lands within a minute. If it doesn&apos;t,
+                    check your spam folder.
                   </p>
                 </>
               )}

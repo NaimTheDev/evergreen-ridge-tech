@@ -15,16 +15,16 @@ import proposalSummaryDetail from "@/images/case-studies/app-cost-estimator/prop
 import proposalFeaturesDetail from "@/images/case-studies/app-cost-estimator/proposal-features-detail.png";
 
 export const metadata = {
-  title: "App Cost Estimator — AI Scoping Tool Case Study",
+  title: "App Cost Estimator: AI Scoping Tool Case Study",
   description:
-    "How App Cost Estimator turns a paragraph describing a project into an itemized, defensible software estimate — the problem behind it, how it was built, and where the AI actually sits.",
+    "How App Cost Estimator turns a paragraph describing a project into an itemized, defensible software estimate. The problem behind it, how it was built, and where the AI fits in.",
   alternates: {
     canonical: "/case-studies/app-cost-estimator",
   },
   openGraph: {
     type: "article",
     url: "https://www.evergreenridgetech.com/case-studies/app-cost-estimator",
-    title: "App Cost Estimator — AI Scoping Tool Case Study",
+    title: "App Cost Estimator: AI Scoping Tool Case Study",
     description:
       "A tool that reads a project description and returns a priced, line-by-line estimate. Here's the problem behind it, how it was built, and how it came to power the estimator on this site.",
   },
@@ -44,7 +44,7 @@ const steps = [
     image: clientRequestStep,
     alt: "The Client Request step: a large free-text box with an example describing a mobile app for event booking",
     caption:
-      "The first screen is a blank box, not a checklist — paste the email the client actually sent.",
+      "The first screen is a blank box, not a checklist. Paste in the email the client sent.",
     body: "Most scoping tools open with a form. This one opens with the client's own words, because that paragraph is where the real scope is hiding.",
   },
   {
@@ -61,7 +61,7 @@ const steps = [
     image: featuresStep,
     alt: "The features step: a checklist where each feature shows its own hour figure, such as authentication at 15 hours",
     caption:
-      "Authentication 15 hrs, admin dashboard 20 hrs, notifications 8 hrs — visible while you choose.",
+      "Authentication 15 hrs, admin dashboard 20 hrs, notifications 8 hrs, all visible while you choose.",
     body: "Every item carries its own number on the way in. Nothing is revealed at the end, so the total is never a surprise you have to justify after the fact.",
   },
 ];
@@ -72,7 +72,7 @@ const pipeline = [
     mark: "openai",
     title: "Read the description, name the work",
     description:
-      "The model's first job is to go through the client's paragraph and pull out every feature hiding in it, then merge those with whatever was ticked on the checklist and drop the duplicates. This is the part a form genuinely cannot do — it's reading comprehension, and it's what language models are actually good at.",
+      "The model's first job is to go through the client's paragraph and pull out every feature hiding in it, then merge those with whatever was ticked on the checklist and drop the duplicates. A form can't do this part. It's reading comprehension, and that is what language models are good at.",
   },
   {
     stage: "Price",
@@ -85,7 +85,7 @@ const pipeline = [
     mark: "openai",
     title: "Hand back a document, not a number",
     description:
-      "The result comes back as structured data — every line item with its hours and its cost — which becomes the on-screen breakdown and a downloadable PDF. What lands in front of the client reads like a proposal, not a calculator's output.",
+      "The result comes back as structured data, with hours and cost on every line item. That data becomes the on-screen breakdown and a downloadable PDF. What lands in front of the client reads like a proposal, not a calculator's output.",
   },
 ];
 
@@ -94,13 +94,13 @@ const buildNotes = [
     eyebrow: "Design the ending first",
     title: "The document was the spec",
     description:
-      "The build started from what a client should receive — a proposal with a summary, a line for every piece of work, and the overhead spelled out — and worked backwards to the questions needed to produce it. That's why the flow is five short steps instead of one long form: each one exists because the document needs it.",
+      "The build started from what a client should receive: a proposal with a summary, a line for every piece of work, and the overhead spelled out. From there it worked backwards to the questions needed to produce it. That's why the flow is five short steps instead of one long form: each one exists because the document needs it.",
   },
   {
     eyebrow: "No sign-up wall",
     title: "You can use it before you commit",
     description:
-      "Anyone can start an estimate without creating an account — a session is opened quietly in the background, and the work is saved against it from the first step. Nobody is asked to register before they've seen whether the tool is any good.",
+      "Anyone can start an estimate without creating an account. A session opens quietly in the background and saves their work from the first step. Nobody is asked to register before they've seen whether the tool is any good.",
   },
   {
     eyebrow: "Show the math",
@@ -112,7 +112,7 @@ const buildNotes = [
     eyebrow: "Don't block on the slow part",
     title: "The PDF renders in the background",
     description:
-      "Generating the document is the slowest step, so it doesn't hold anything up. The estimate is saved and the summary appears immediately, and the file arrives on its own. If rendering fails, the estimate is still there — it was never dependent on it.",
+      "Generating the document is the slowest step, so it doesn't hold anything up. The estimate is saved and the summary appears immediately, and the file arrives on its own. If rendering fails, the estimate is still there, because it never depended on the PDF.",
   },
 ];
 
@@ -120,13 +120,13 @@ const AppCostEstimatorCaseStudyPage = () => {
   return (
     <>
       <PageIntro
-        eyebrow="Case study — App Cost Estimator"
+        eyebrow="Case study: App Cost Estimator"
         title="A paragraph goes in. A priced proposal comes out."
       >
         <p>
-          App Cost Estimator reads a project described in plain English — the
-          email a client actually sent — and returns an itemized estimate with
-          hours and cost on every line. It&apos;s a product in its own right,
+          App Cost Estimator reads a project described in plain English, such as
+          the email a client sent, and returns an itemized estimate with hours
+          and cost on every line. It&apos;s a product in its own right,
           and the estimating method behind it is the one now running on this
           site&apos;s own cost estimator.
         </p>
@@ -170,11 +170,11 @@ const AppCostEstimatorCaseStudyPage = () => {
               will read the same paragraph and produce different numbers,
               because they noticed different things in it. And an estimate that
               arrives as a single figure can&apos;t survive the obvious
-              question — a number you can&apos;t break apart is a number you
+              question. A number you can&apos;t break apart is a number you
               can&apos;t defend.
             </p>
             <p>
-              So the tool was built around translation rather than calculation:
+              So the tool was built around translation, not calculation:
               read the description properly, name every piece of work it
               implies, and price each one out in the open.
             </p>
@@ -208,7 +208,7 @@ const AppCostEstimatorCaseStudyPage = () => {
                 </p>
                 <p className="mt-3 text-base/7 text-muted-foreground">
                   Same description, five short steps, and a proposal with every
-                  line priced — including the work that usually goes unquoted.
+                  line priced, including the work that usually goes unquoted.
                 </p>
               </div>
             </FadeIn>
@@ -289,8 +289,8 @@ const AppCostEstimatorCaseStudyPage = () => {
               <p>
                 The proposal opens with the headline figures and then earns
                 them: a row for every feature, with its hours and its share of
-                the cost. There is no opaque total — the number at the top is
-                the sum of things you can point at.
+                the cost. Nothing is hidden in the total. The number at the top
+                is the sum of things you can point at.
               </p>
               <p>
                 The rows most quotes leave out are in there as line items of
@@ -350,7 +350,7 @@ const AppCostEstimatorCaseStudyPage = () => {
             <ScreenFrame
               image={proposalFeaturesDetail}
               alt="Detail of the feature breakdown showing Onboarding Flow at 6.5 hours, then Focus Timers at 9 hours, Gamification at 13 hours and Progression Systems at 13 hours"
-              caption="Four rows from the same breakdown — one from the checklist, three from the description."
+              caption="Four rows from the same breakdown: one from the checklist, three from the description."
             />
           </FadeIn>
         </div>
@@ -360,14 +360,14 @@ const AppCostEstimatorCaseStudyPage = () => {
       <Container className="mt-20 sm:mt-28">
         <FadeIn className="max-w-3xl">
           <p className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">
-            Where the AI actually is
+            Where the AI fits in
           </p>
           <h2 className="mt-3 font-display text-3xl font-medium tracking-tight text-foreground sm:text-4xl">
             Let it read and write. Don&apos;t let it guess.
           </h2>
           <p className="mt-6 text-base/7 text-muted-foreground">
             &ldquo;AI-powered&rdquo; usually hides more than it explains, so
-            here is the honest version — three jobs, and what each one is
+            here is the honest version: three jobs, and what each one is
             allowed to decide.
           </p>
         </FadeIn>
@@ -424,10 +424,10 @@ const AppCostEstimatorCaseStudyPage = () => {
 
         <FadeIn className="mt-6">
           <p className="max-w-3xl text-base/7 text-muted-foreground">
-            Note which card has no logo on it. The model is trusted to
-            understand a brief and to lay out a document — the two things it
-            does better than a form ever could. It is not trusted to invent what
-            an hour of work is worth.
+            Note which card has no logo on it. We trust the model to
+            understand a brief and to lay out a document, the two things it
+            does better than a form ever could. We don&apos;t trust it to decide
+            what an hour of work is worth.
           </p>
         </FadeIn>
       </Container>
@@ -444,15 +444,15 @@ const AppCostEstimatorCaseStudyPage = () => {
             </h2>
             <div className="mt-6 space-y-6 text-base/7 text-muted-foreground">
               <p>
-                Every estimate is kept — with its cost, its hours and the
-                features it covered — so a quote from two months ago can be
-                reopened when the client comes back with changes, instead of
-                being rebuilt from memory.
+                Every estimate is saved with its cost, its hours and the
+                features it covered. When a client comes back with changes two
+                months later, you reopen the quote instead of rebuilding it from
+                memory.
               </p>
               <p>
                 The running total across the account turns out to be the most
-                quietly useful number on the screen: it&apos;s a record of how
-                much work has been scoped, sitting next to every individual
+                quietly useful number on the screen: it&apos;s a record of all
+                the work you&apos;ve scoped, sitting next to every individual
                 quote that made it up.
               </p>
             </div>
@@ -514,7 +514,7 @@ const AppCostEstimatorCaseStudyPage = () => {
               <p>
                 Writing the method down precisely enough for a machine to follow
                 had a side effect worth more than the tool itself: it turned out
-                to be a specification. Every rule was already explicit — the
+                to be a specification. Every rule was already explicit: the
                 baseline hours for each kind of feature, the multipliers for
                 complexity, what a rushed timeline does to the worst case, and
                 the five overhead lines that always apply.
@@ -522,10 +522,10 @@ const AppCostEstimatorCaseStudyPage = () => {
               <p>
                 So the cost estimator on this site is the same method, rewritten
                 as ordinary arithmetic. Same feature vocabulary, same hour
-                ranges, same multipliers, same buffers — running in the browser,
+                ranges, same multipliers, same buffers. It runs in the browser
                 with no model call and no API key, which is why it answers the
-                instant you tick a box. Once a method is written down, it
-                doesn&apos;t need to be interpreted.
+                instant you tick a box. Once a method is written down, nobody
+                needs to interpret it.
               </p>
               <p>
                 There&apos;s still a model in the loop here, doing the job it
@@ -586,7 +586,7 @@ const AppCostEstimatorCaseStudyPage = () => {
                   Build it for yourself first
                 </p>
                 <p className="mt-2 text-base/7 text-neutral-300">
-                  Every opinion in it came from quoting real work — which is
+                  Every opinion in it came from quoting real work, which is
                   also how it ended up running on this site.
                 </p>
               </FadeIn>

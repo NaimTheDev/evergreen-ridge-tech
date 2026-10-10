@@ -8,7 +8,7 @@ const StepFeatures = ({ selected, onToggle, complexity, timeline }) => {
         What features do you need?
       </h2>
       <p className="mt-2 text-sm text-muted-foreground">
-        Select all that apply — estimated hours update as you go.
+        Select all that apply. Estimated hours update as you go.
       </p>
       <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
         {FEATURES.map((feature) => {

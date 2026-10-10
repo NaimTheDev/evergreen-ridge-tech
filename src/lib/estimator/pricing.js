@@ -37,9 +37,9 @@ export const COMPLEXITY_LEVELS = [
 ];
 
 export const TIMELINE_OPTIONS = [
-  { key: "rush", label: "Rush (< 2 weeks)", description: "Tight turnaround — pessimistic hours increase." },
-  { key: "standard", label: "Standard (2–8 weeks)", description: "Typical pace — no adjustment." },
-  { key: "flexible", label: "Flexible (8+ weeks)", description: "Room to breathe — optimistic hours decrease." },
+  { key: "rush", label: "Rush (< 2 weeks)", description: "Tight turnaround, so we plan for more hours." },
+  { key: "standard", label: "Standard (2–8 weeks)", description: "Typical pace, no adjustment." },
+  { key: "flexible", label: "Flexible (8+ weeks)", description: "Room to breathe, so we plan for fewer hours." },
 ];
 
 export const BUDGET_RANGES = [

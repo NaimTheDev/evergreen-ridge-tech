@@ -115,7 +115,7 @@ const EstimateResults = ({
             onClick={() => setShowBreakdown((v) => !v)}
             className="text-xs text-primary-foreground/70 underline decoration-dotted underline-offset-2 hover:text-primary-foreground"
           >
-            Includes discovery, QA, PM & deployment — {showBreakdown ? "hide the math" : "see the math"} {showBreakdown ? "‹" : "›"}
+            Includes discovery, QA, PM & deployment. {showBreakdown ? "Hide the math" : "See the math"} {showBreakdown ? "‹" : "›"}
           </button>
           {showBreakdown && (
             <dl className="mt-3 space-y-2 text-xs text-primary-foreground/70">
@@ -139,7 +139,7 @@ const EstimateResults = ({
             ~{estimate.totalHours} hours
           </p>
           <p className="mt-1 text-xs text-primary-foreground/60">
-            Add your details and we&apos;ll put together a full proposal — pricing included —
+            Add your details and we&apos;ll put together a full proposal, with pricing,
             and email it to you.
           </p>
         </div>
@@ -149,8 +149,8 @@ const EstimateResults = ({
         Rather talk it through?{" "}
         <a href="#contact" className="underline hover:text-primary-foreground">
           Contact us
-        </a>{" "}
-        — no form required.
+        </a>
+        . No form required.
       </p>
 
       {showEmailForm && (
@@ -185,7 +185,7 @@ const EstimateResults = ({
             )}
             {status === "sent" && (
               <p className="text-xs text-green-200">
-                On its way — check your inbox in a minute.
+                On its way. Check your inbox in a minute.
               </p>
             )}
             {status === "error" && (

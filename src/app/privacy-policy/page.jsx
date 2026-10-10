@@ -45,13 +45,13 @@ const PrivacyPolicyPage = () => {
               </p>
               <ul className="list-disc space-y-2 pl-6">
                 <li>
-                  <strong className="text-foreground">Contact form</strong> —
-                  name, email address, company, phone number, and the message
+                  <strong className="text-foreground">Contact form:</strong>{" "}
+                  your name, email address, company, phone number, and the message
                   you send us.
                 </li>
                 <li>
-                  <strong className="text-foreground">Cost Estimator</strong>{" "}
-                  — your name, email address, and the project details you
+                  <strong className="text-foreground">Cost Estimator:</strong>{" "}
+                  your name, email address, and the project details you
                   select or type in (project type, features, complexity,
                   timeline, budget range, and any notes), so we can send you a
                   draft estimate and follow up if you&apos;d like to talk

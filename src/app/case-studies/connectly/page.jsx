@@ -12,16 +12,16 @@ import sessionConfirmed from "@/images/case-studies/connectly/session-confirmed.
 import upcomingCalls from "@/images/case-studies/connectly/upcoming-calls.png";
 
 export const metadata = {
-  title: "Connectly — Mentorship Booking App Case Study",
+  title: "Connectly: Mentorship Booking App Case Study",
   description:
-    "How Connectly turns finding a mentor and getting on their calendar into a single flow — the intent behind the product, how it was built, and the tools it connects to.",
+    "How Connectly turns finding a mentor and getting on their calendar into a single flow. The intent behind the product, how it was built, and the tools it connects to.",
   alternates: {
     canonical: "/case-studies/connectly",
   },
   openGraph: {
     type: "article",
     url: "https://www.evergreenridgetech.com/case-studies/connectly",
-    title: "Connectly — Mentorship Booking App Case Study",
+    title: "Connectly: Mentorship Booking App Case Study",
     description:
       "A mentorship app where browsing, booking, and staying in touch all happen in one place. Here's the intent behind it, how it was built, and what it connects to.",
   },
@@ -59,20 +59,20 @@ const integrations = [
     mark: "calendly",
     role: "Real availability, real bookings",
     description:
-      "Mentors connect the calendar they already keep, once, through a secure sign-in — no copying keys or pasting links. From then on the app shows only times they're genuinely free, books the session on the mentee's behalf, and offers reschedule and cancel options on the confirmation. If a session changes anywhere else, Connectly hears about it and updates itself.",
+      "Mentors connect the calendar they already keep, once, through a secure sign-in, with no keys to copy or links to paste. From then on the app shows only times they're free, books the session on the mentee's behalf, and offers reschedule and cancel options on the confirmation. If a session changes anywhere else, Connectly hears about it and updates itself.",
   },
   {
     name: "Zoom",
     mark: "zoom",
     role: "The room the session happens in",
     description:
-      "Booking a session creates the video meeting automatically, and the link lands on the mentee's home screen behind a single Join Call button. Video links take a moment to be created, so the app waits for it rather than showing an empty button — and if one ever fails to appear, the session is flagged instead of quietly leaving someone staring at a dead link.",
+      "Booking a session creates the video meeting automatically, and the link lands on the mentee's home screen behind a single Join Call button. Video links take a moment to be created, so the app waits for it instead of showing an empty button. If one ever fails to appear, the app flags the session so nobody is left staring at a dead link.",
   },
   {
     name: "Secure sign-in",
     role: "Getting in without friction",
     description:
-      "One tap with Google, or an email and password for everyone else — with password resets handled properly so nobody gets stuck at the door. Each person's role travels with their account, so mentors and mentees land in the version of the app built for them.",
+      "One tap with Google, or an email and password for everyone else. Password resets work properly, so nobody gets stuck at the door. Each person's role travels with their account, so mentors and mentees land in the version of the app built for them.",
   },
   {
     name: "Live data sync",
@@ -100,15 +100,15 @@ const upcoming = {
   role: "Paid sessions and paid chats",
   status: "In build",
   description:
-    "Mentors already name their price during setup — one rate for a video session, another for chat — and mentees already see it before they book. The next release closes that loop: paying for a session at the moment it's booked, and paying for chat access the same way, with payouts landing in the mentor's account without anyone sending an invoice. The groundwork is deliberate — pricing, roles, and the private server layer were all built with this step in mind.",
+    "Mentors already name their price during setup, one rate for a video session and another for chat, and mentees already see it before they book. The next release closes that loop: paying for a session at the moment it's booked, and paying for chat access the same way, with payouts landing in the mentor's account without anyone sending an invoice. The groundwork is deliberate: pricing, roles, and the private server layer were all built with this step in mind.",
 };
 
 const ConnectlyCaseStudyPage = () => {
   return (
     <>
       <PageIntro
-        eyebrow="Case study — Connectly"
-        title="Mentorship that actually makes it onto the calendar."
+        eyebrow="Case study: Connectly"
+        title="Mentorship that makes it onto the calendar."
       >
         <p>
           Connectly is a mentorship app for two kinds of people: someone looking
@@ -156,7 +156,7 @@ const ConnectlyCaseStudyPage = () => {
             <p>
               Connectly was built to close that gap. The goal was to make the
               distance between &ldquo;this person could help me&rdquo; and a
-              confirmed session as short as a few taps — no link swapping, no
+              confirmed session as short as a few taps. No link swapping, no
               guessing at time zones, no waiting for a reply to know whether
               Tuesday works.
             </p>
@@ -165,7 +165,7 @@ const ConnectlyCaseStudyPage = () => {
               scarce thing in the whole system, so the app is built around their
               terms: they choose whether they offer video calls, chat sessions,
               or both, they set their own prices, and the only times a mentee
-              ever sees are the ones they actually left open. Mentors say yes
+              ever sees are the ones they left open. Mentors say yes
               once, during setup, and the app handles the rest.
             </p>
           </div>
@@ -193,7 +193,7 @@ const ConnectlyCaseStudyPage = () => {
               <PhoneFrame
                 image={mentorDirectory}
                 alt="Connectly's mentor directory with a search field and a list of mentors showing their focus areas"
-                caption="Search by name or focus area — mentorship, finance, software, whatever you came for."
+                caption="Search by name or focus area: mentorship, finance, software, whatever you came for."
                 priority
               />
               <h3 className="mt-6 text-center font-display text-lg font-semibold text-foreground">
@@ -217,7 +217,7 @@ const ConnectlyCaseStudyPage = () => {
               </h3>
               <p className="mt-2 text-center text-base/7 text-muted-foreground">
                 The upcoming call is the first thing you see, with the join
-                button already on it — no hunting through email for a link.
+                button already on it. No hunting through email for a link.
               </p>
             </FadeIn>
 
@@ -228,11 +228,11 @@ const ConnectlyCaseStudyPage = () => {
                 caption="Open slots pulled straight from the mentor's own calendar."
               />
               <h3 className="mt-6 text-center font-display text-lg font-semibold text-foreground">
-                Pick a time that really is free
+                Pick a time that&apos;s actually free
               </h3>
               <p className="mt-2 text-center text-base/7 text-muted-foreground">
                 No requests, no waiting for confirmation. If a time appears in
-                the list, it can be booked right then.
+                the list, you can book it right then.
               </p>
             </FadeIn>
 
@@ -240,7 +240,7 @@ const ConnectlyCaseStudyPage = () => {
               <PhoneFrame
                 image={sessionConfirmed}
                 alt="A 'Session Confirmed' dialog showing the invitee, email, time, and reschedule or cancel options"
-                caption="Who, when, and what to do if plans change — all in one card."
+                caption="Who, when, and what to do if plans change, all in one card."
               />
               <h3 className="mt-6 text-center font-display text-lg font-semibold text-foreground">
                 Confirmation without the guesswork
@@ -261,8 +261,8 @@ const ConnectlyCaseStudyPage = () => {
                 One tab for everything booked
               </h3>
               <p className="mt-2 text-center text-base/7 text-muted-foreground">
-                Sessions stay current on their own — if one is cancelled
-                elsewhere, it disappears here too.
+                Sessions stay current on their own. Cancel one anywhere else
+                and it disappears here too.
               </p>
             </FadeIn>
 
@@ -273,9 +273,9 @@ const ConnectlyCaseStudyPage = () => {
                 </h3>
                 <p className="mt-3 text-base/7 text-muted-foreground">
                   Not every question needs a video call. Mentors can offer chat
-                  sessions instead of — or alongside — calls, so a quick
+                  sessions instead of calls or alongside them, so a quick
                   question gets a quick answer and the relationship keeps going
-                  between meetings rather than resetting each time.
+                  between meetings instead of starting over each time.
                 </p>
               </div>
             </FadeIn>
@@ -305,10 +305,10 @@ const ConnectlyCaseStudyPage = () => {
                   The booking loop came first
                 </h3>
                 <p className="mt-3 text-base/7 text-muted-foreground">
-                  Find a mentor, pick a time, get confirmed. That loop was built
-                  and made to feel good before anything else was allowed in.
-                  Every feature that came afterward — messaging, profiles,
-                  pricing — had to justify itself against that core, which is
+                  Find a mentor, pick a time, get confirmed. We built that loop
+                  and made it feel good before letting anything else in.
+                  Every feature that came afterward, from messaging to profiles
+                  to pricing, had to justify itself against that core, which is
                   why the app never grew a settings screen nobody asked for.
                 </p>
               </div>
@@ -326,9 +326,9 @@ const ConnectlyCaseStudyPage = () => {
                   New members pick a side on their first screen and the setup
                   forks from there: mentees describe what they&apos;re working
                   toward, mentors describe what they know, what they offer, and
-                  what they charge. Progress is saved as they go, so nobody
-                  loses ten minutes of typing to a dropped connection — and
-                  neither side is ever shown a control meant for the other.
+                  what they charge. The app saves progress as they go, so nobody
+                  loses ten minutes of typing to a dropped connection, and
+                  neither side ever sees a control meant for the other.
                 </p>
               </div>
             </FadeIn>
@@ -342,12 +342,12 @@ const ConnectlyCaseStudyPage = () => {
                   No calendar was rebuilt here
                 </h3>
                 <p className="mt-3 text-base/7 text-muted-foreground">
-                  Scheduling is a deceptively deep problem — time zones,
-                  double-bookings, buffers, cancellations. Rather than rebuild
-                  that badly, Connectly plugs into the calendar tool mentors
+                  Scheduling is a deceptively deep problem: time zones,
+                  double-bookings, buffers, cancellations. Instead of rebuilding
+                  all that badly, Connectly plugs into the calendar tool mentors
                   already trust and wraps it in an experience that feels native
-                  to the app. Months of work avoided, and a category of bugs
-                  that simply never existed.
+                  to the app. That saved months of work and ruled out a whole
+                  category of bugs.
                 </p>
               </div>
             </FadeIn>
@@ -364,7 +364,7 @@ const ConnectlyCaseStudyPage = () => {
                   Colors, spacing, buttons, and avatars are all defined in a
                   single place and reused across every screen. New features
                   inherit the look automatically instead of drifting, and a
-                  brand tweak is one change rather than a hundred. It&apos;s
+                  brand tweak is one change, not a hundred. It&apos;s
                   also why the app reads cleanly in both light and dark mode
                   without a separate design pass.
                 </p>
@@ -383,7 +383,7 @@ const ConnectlyCaseStudyPage = () => {
                   One codebase produces both apps, so a fix ships to everyone at
                   once and the two platforms can&apos;t quietly drift apart.
                   That decision kept the build affordable and keeps it cheap to
-                  maintain — the real cost of any app is the years after launch.
+                  maintain. The real cost of any app is the years after launch.
                 </p>
               </div>
             </FadeIn>
@@ -398,8 +398,8 @@ const ConnectlyCaseStudyPage = () => {
                 </h3>
                 <p className="mt-3 text-base/7 text-muted-foreground">
                   Automated tests and checks run over the app on every change,
-                  covering the paths that matter most — signing in, finishing
-                  setup, booking a session. The point isn&apos;t perfection;
+                  covering the paths that matter most: signing in, finishing
+                  setup, and booking a session. The point isn&apos;t perfection;
                   it&apos;s confidence that improving messaging on a Tuesday
                   won&apos;t quietly break scheduling on a Wednesday.
                 </p>
@@ -520,8 +520,8 @@ const ConnectlyCaseStudyPage = () => {
                   Solve the drop-off, not the feature list
                 </p>
                 <p className="mt-2 text-base/7 text-neutral-300">
-                  Finding where people give up — and designing that moment away
-                  — did more for Connectly than any feature could have.
+                  Finding where people give up and designing that moment away
+                  did more for Connectly than any feature could have.
                 </p>
               </FadeIn>
               <FadeIn>

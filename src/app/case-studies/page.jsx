@@ -9,7 +9,7 @@ import { caseStudies } from "@/constants/caseStudies";
 export const metadata = {
   title: "Case Studies",
   description:
-    "A closer look at the products Evergreen Ridge Technology has designed and built — the problem behind each one, how it came together, and the tools it connects to.",
+    "A closer look at the products Evergreen Ridge Technology has designed and built: the problem behind each one, how it came together, and the tools it connects to.",
   alternates: {
     canonical: "/case-studies",
   },
@@ -18,7 +18,7 @@ export const metadata = {
     url: "https://www.evergreenridgetech.com/case-studies",
     title: "Case Studies | Evergreen Ridge Technology",
     description:
-      "A closer look at the products we've designed and built — the problem behind each one, how it came together, and the tools it connects to.",
+      "A closer look at the products we've designed and built: the problem behind each one, how it came together, and the tools it connects to.",
   },
 };
 

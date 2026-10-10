@@ -13,8 +13,8 @@ const WorkPage = () => {
         <p>
           We help businesses modernize systems and deliver reliable digital
           products. Our approach combines disciplined delivery, security-minded
-          engineering, and clear communication — so our clients can meet their
-          goals on time and within scope.
+          engineering, and clear communication, so our clients hit their goals on
+          time and within scope.
         </p>
 
         <div className="mt-12">
@@ -30,7 +30,7 @@ const WorkPage = () => {
           <div className="mt-8 grid gap-6">
             <FadeIn className="rounded-3xl bg-muted p-6">
               <h3 className="font-display text-lg font-semibold text-neutral-950">
-                App Cost Estimator — AI Scoping Tool
+                App Cost Estimator: AI Scoping Tool
               </h3>
               <p className="mt-3 text-base text-neutral-600">
                 A web product that reads a project described in plain English
@@ -50,7 +50,7 @@ const WorkPage = () => {
 
             <FadeIn className="rounded-3xl bg-muted p-6">
               <h3 className="font-display text-lg font-semibold text-neutral-950">
-                Connectly — Mentorship Booking App
+                Connectly: Mentorship Booking App
               </h3>
               <p className="mt-3 text-base text-neutral-600">
                 An iOS and Android app where mentees find a mentor, book real

@@ -15,9 +15,9 @@ const Services = () => {
         className="mt-24 sm:mt-32 lg:mt-40"
       >
         <p>
-          Our team aligns with your business goals, technical standards, and
-          performance outcomes to keep projects on track and your team
-          supported.
+          We start from your business goals and your technical standards,
+          keep the project on schedule, and stay available to your team
+          after launch.
         </p>
       </SectionIntro>
       <Container className="mt-16">
@@ -38,7 +38,7 @@ const Services = () => {
               architecture and clear performance baselines.
             </ListItem>
             <ListItem title="AI application development">
-              Build AI-powered web applications — from chatbots and intelligent
+              Build AI-powered web applications, from chatbots and intelligent
               assistants to LLM integrations, retrieval-augmented generation, and
               automation that fits naturally into your product.
             </ListItem>
