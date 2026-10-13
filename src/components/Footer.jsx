@@ -6,6 +6,15 @@ import Logo from "./Logo";
 import Link from "next/link";
 import Image from "next/image";
 import logoWithWords from "@/images/logo_with_words.png";
+import { appCostEstimatorUrl, gitHubUrl, linkedInUrl } from "@/config/site";
+
+const footerLinks = [
+  { title: "Case Studies", href: "/case-studies" },
+  { title: "App Cost Estimator", href: appCostEstimatorUrl, external: true },
+  { title: "Contact", href: "/contact" },
+  { title: "LinkedIn", href: linkedInUrl, external: true },
+  { title: "GitHub", href: gitHubUrl, external: true },
+];
 
 const ArrowIcon = (props) => {
   return (
@@ -72,6 +81,27 @@ const Footer = () => {
                      />
           </Link>
           <div className="flex flex-col items-end gap-2">
+            <nav aria-label="Footer">
+              <ul
+                role="list"
+                className="flex flex-wrap justify-end gap-x-4 gap-y-2 text-sm text-neutral-700"
+              >
+                {footerLinks.map((link) => (
+                  <li key={link.title}>
+                    <Link
+                      href={link.href}
+                      className="hover:text-neutral-950"
+                      {...(link.external && {
+                        target: "_blank",
+                        rel: "noopener noreferrer",
+                      })}
+                    >
+                      {link.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
             <div className="flex gap-x-4 text-sm text-neutral-700">
               <Link href="/privacy-policy" className="hover:text-neutral-950">
                 Privacy Policy

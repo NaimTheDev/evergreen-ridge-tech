@@ -1,35 +1,11 @@
 import Link from "next/link";
 import clsx from "clsx";
-import {
-  BsFacebook,
-  BsTwitter,
-  BsGithub,
-  BsYoutube,
-  BsLinkedin,
-} from "react-icons/bs";
+import { BsGithub, BsLinkedin } from "react-icons/bs";
+import { gitHubUrl, linkedInUrl } from "@/config/site";
 
 export const SocialMediaProfiles = [
-  {
-    title: "Youtube",
-    href: "https://www.youtube.com/watch?v=eAswnbWptBM",
-    icon: BsYoutube,
-  },
-  { title: "GitHub", href: "https://github.com/chrhi", icon: BsGithub },
-  {
-    title: "Facebook",
-    href: "https://www.facebook.com/profile.php?id=100010070348939",
-    icon: BsFacebook,
-  },
-  {
-    title: "linkedin",
-    href: "https://www.linkedin.com/in/chehri-abdellah-4a8858267/",
-    icon: BsLinkedin,
-  },
-  {
-    title: "Twitter",
-    href: "https://twitter.com/KING_IN_JUNGLE",
-    icon: BsTwitter,
-  },
+  { title: "LinkedIn", href: linkedInUrl, icon: BsLinkedin },
+  { title: "GitHub", href: gitHubUrl, icon: BsGithub },
 ];
 
 const SocialMedia = ({ className, invert = false }) => {
@@ -47,6 +23,8 @@ const SocialMedia = ({ className, invert = false }) => {
           <Link
             href={item.href}
             aria-label={item.title}
+            target="_blank"
+            rel="noopener noreferrer"
             className={clsx(
               "transition",
               invert ? "hover:text-neutral-200" : "hover:text-neutral-700"

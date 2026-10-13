@@ -35,3 +35,8 @@ export function constructMetadata({
     }),
   };
 }
+
+export const contactEmail = "naim@evergreenridgetech.com";
+export const linkedInUrl = "https://www.linkedin.com/in/naimabubaker";
+export const gitHubUrl = "https://github.com/NaimTheDev";
+export const appCostEstimatorUrl = "https://appcostestimator.com";

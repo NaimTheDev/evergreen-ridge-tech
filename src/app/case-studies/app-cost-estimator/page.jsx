@@ -6,6 +6,8 @@ import PhoneFrame from "@/components/PhoneFrame";
 import ScreenFrame from "@/components/ScreenFrame";
 import BrandMark from "@/components/BrandMark";
 import ContactSection from "@/components/ContactSection";
+import Button from "@/components/Button";
+import { appCostEstimatorUrl } from "@/config/site";
 import clientRequestStep from "@/images/case-studies/app-cost-estimator/client-request-step.png";
 import projectTypeStep from "@/images/case-studies/app-cost-estimator/project-type-step.png";
 import featuresStep from "@/images/case-studies/app-cost-estimator/features-step.png";
@@ -130,6 +132,22 @@ const AppCostEstimatorCaseStudyPage = () => {
           and the estimating method behind it is the one now running on this
           site&apos;s own cost estimator.
         </p>
+        <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
+          <Button
+            href={appCostEstimatorUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Try it live
+            <span className="sr-only"> (opens in a new tab)</span>
+          </Button>
+          <Link
+            href="/cost-estimator"
+            className="text-sm font-semibold text-neutral-950 underline underline-offset-4"
+          >
+            Try it on this site
+          </Link>
+        </div>
       </PageIntro>
 
       <Container className="mt-16 sm:mt-20">
@@ -534,18 +552,27 @@ const AppCostEstimatorCaseStudyPage = () => {
                 asked, and it never recalculates them.
               </p>
             </div>
-            <div className="mt-8">
-              <Link
-                href="/cost-estimator"
+            <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
+              <a
+                href={appCostEstimatorUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group/cta inline-flex items-center gap-2 rounded-full bg-primary px-4 py-1.5 text-sm font-semibold text-primary-foreground transition hover:bg-primary/90"
               >
-                Try it on this site
+                Try it live
+                <span className="sr-only"> (opens in a new tab)</span>
                 <span
                   aria-hidden="true"
                   className="transition-transform duration-300 ease-out group-hover/cta:translate-x-1 motion-reduce:transform-none motion-reduce:transition-none"
                 >
                   &rarr;
                 </span>
+              </a>
+              <Link
+                href="/cost-estimator"
+                className="text-sm font-semibold text-foreground underline underline-offset-4 transition hover:text-primary"
+              >
+                Try it on this site
               </Link>
             </div>
           </div>

@@ -72,18 +72,31 @@ const CaseStudiesPage = () => {
                         </li>
                       ))}
                     </ul>
-                    <Link
-                      href={study.href}
-                      className="group/cta mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-4 py-1.5 text-sm font-semibold text-primary-foreground transition hover:bg-primary/90"
-                    >
-                      Read the case study
-                      <span
-                        aria-hidden="true"
-                        className="transition-transform duration-300 ease-out group-hover/cta:translate-x-1 motion-reduce:transform-none motion-reduce:transition-none"
+                    <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
+                      <Link
+                        href={study.href}
+                        className="group/cta inline-flex items-center gap-2 rounded-full bg-primary px-4 py-1.5 text-sm font-semibold text-primary-foreground transition hover:bg-primary/90"
                       >
-                        &rarr;
-                      </span>
-                    </Link>
+                        Read the case study
+                        <span
+                          aria-hidden="true"
+                          className="transition-transform duration-300 ease-out group-hover/cta:translate-x-1 motion-reduce:transform-none motion-reduce:transition-none"
+                        >
+                          &rarr;
+                        </span>
+                      </Link>
+                      {study.liveUrl && (
+                        <a
+                          href={study.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-sm font-semibold text-foreground underline underline-offset-4 transition hover:text-primary"
+                        >
+                          Try it
+                          <span className="sr-only"> (opens in a new tab)</span>
+                        </a>
+                      )}
+                    </div>
                   </div>
 
                   <div className="mx-auto w-full max-w-[14rem] rounded-[2.5rem] border border-border bg-background p-2 shadow-[0_20px_60px_rgba(15,61,46,0.12)] transition-shadow duration-500 ease-out group-hover:shadow-[0_28px_70px_rgba(15,61,46,0.18)] motion-reduce:transition-none">

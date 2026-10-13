@@ -5,11 +5,17 @@ import PageIntro from "@/components/PageIntro";
 import PhoneFrame from "@/components/PhoneFrame";
 import BrandMark from "@/components/BrandMark";
 import ContactSection from "@/components/ContactSection";
+import Button from "@/components/Button";
+import { contactEmail } from "@/config/site";
 import mentorDirectory from "@/images/case-studies/connectly/mentor-directory.png";
 import homeDashboard from "@/images/case-studies/connectly/home-dashboard.png";
 import chooseATime from "@/images/case-studies/connectly/choose-a-time.png";
 import sessionConfirmed from "@/images/case-studies/connectly/session-confirmed.png";
 import upcomingCalls from "@/images/case-studies/connectly/upcoming-calls.png";
+
+const testFlightInviteHref = `mailto:${contactEmail}?subject=${encodeURIComponent(
+  "Connectly TestFlight invite"
+)}`;
 
 export const metadata = {
   title: "Connectly: Mentorship Booking App Case Study",
@@ -49,7 +55,7 @@ const partners = [
     key: "stripe",
     name: "Stripe",
     role: "Payments",
-    status: "In build",
+    status: "Planned",
   },
 ];
 
@@ -98,9 +104,9 @@ const upcoming = {
   name: "Stripe",
   mark: "stripe",
   role: "Paid sessions and paid chats",
-  status: "In build",
+  status: "Planned",
   description:
-    "Mentors already name their price during setup, one rate for a video session and another for chat, and mentees already see it before they book. The next release closes that loop: paying for a session at the moment it's booked, and paying for chat access the same way, with payouts landing in the mentor's account without anyone sending an invoice. The groundwork is deliberate: pricing, roles, and the private server layer were all built with this step in mind.",
+    "Mentors already name their price during setup, one rate for a video session and another for chat, and mentees already see it before they book. Payments are designed for a later phase: paying for a session at the moment it's booked, paying for chat access the same way, and payouts landing in the mentor's account without anyone sending an invoice. The groundwork is deliberate: pricing, roles, and the private server layer were all built with this step in mind.",
 };
 
 const ConnectlyCaseStudyPage = () => {
@@ -117,6 +123,12 @@ const ConnectlyCaseStudyPage = () => {
           scheduling desk. Browsing, booking, and staying in touch all happen in
           one place.
         </p>
+        <p className="mt-6 text-base font-semibold text-neutral-950">
+          Status: MVP in TestFlight
+        </p>
+        <div className="mt-6 flex">
+          <Button href={testFlightInviteHref}>Request a TestFlight invite</Button>
+        </div>
       </PageIntro>
 
       <Container className="mt-16 sm:mt-20">
@@ -543,6 +555,19 @@ const ConnectlyCaseStudyPage = () => {
                 </p>
               </FadeIn>
             </FadeInStagger>
+          </div>
+        </FadeIn>
+      </Container>
+
+      <Container className="mt-16 sm:mt-20">
+        <FadeIn>
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+            <p className="text-base text-muted-foreground">
+              Want to see it on your own phone?
+            </p>
+            <Button href={testFlightInviteHref}>
+              Request a TestFlight invite
+            </Button>
           </div>
         </FadeIn>
       </Container>
