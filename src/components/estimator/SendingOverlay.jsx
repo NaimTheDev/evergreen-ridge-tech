@@ -215,14 +215,14 @@ const SendingOverlay = ({ status, email, errorMessage, onClose, onRetry }) => {
                 <>
                   <h2 className="font-display text-lg font-semibold">Got it</h2>
                   <p className="mt-2 text-sm text-muted-foreground">
-                    Your draft estimate is on its way
+                    We&apos;re putting together your draft proposal. It&apos;ll be sent
                     {email ? (
                       <>
                         {" "}
                         to <span className="font-semibold text-foreground">{email}</span>
                       </>
-                    ) : null}
-                    . It usually lands within a minute. If it doesn&apos;t,
+                    ) : null}{" "}
+                    within a few minutes. If it doesn&apos;t show up,
                     check your spam folder.
                   </p>
                 </>

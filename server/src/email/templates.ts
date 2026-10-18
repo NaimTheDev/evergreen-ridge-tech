@@ -109,18 +109,10 @@ export function buildEstimateVisitorHtml(payload: EstimatePayload, proposal: Pro
   `;
 }
 
-export function buildEstimateLeadHtml(
-  payload: EstimatePayload,
-  { proposalFailed = false }: { proposalFailed?: boolean } = {}
-) {
+export function buildEstimateLeadHtml(payload: EstimatePayload) {
   return `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #121212;">
       <h1 style="font-size: 18px;">New Cost Estimator submission</h1>
-      ${
-        proposalFailed
-          ? `<p style="background:#FEF3C7;border-left:4px solid #D97706;padding:12px;font-weight:bold;">AI proposal generation failed for this lead — manual follow-up may help.</p>`
-          : ""
-      }
       <p><strong>Name:</strong> ${escapeHtml(payload.name)}</p>
       <p><strong>Email:</strong> ${escapeHtml(payload.email)}</p>
       <p><strong>Project type:</strong> ${escapeHtml(payload.project_type)}</p>
@@ -147,6 +139,22 @@ export function buildEstimateLeadHtml(
           ${breakdownRowsHtml([...payload.breakdown, ...payload.bufferLines])}
         </tbody>
       </table>
+    </div>
+  `;
+}
+
+// Sent after the lead email when the PDF couldn't be produced, because in that
+// case the visitor gets nothing and needs a manual follow-up.
+export function buildProposalFailedAlertHtml(payload: EstimatePayload) {
+  return `
+    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #121212;">
+      <p style="background:#FEF3C7;border-left:4px solid #D97706;padding:12px;font-weight:bold;">
+        The proposal PDF failed for this lead, so no estimate email was sent to them.
+        Reply to this email to follow up by hand.
+      </p>
+      <p><strong>Name:</strong> ${escapeHtml(payload.name)}</p>
+      <p><strong>Email:</strong> ${escapeHtml(payload.email)}</p>
+      <p>The full submission is in the earlier "New cost estimator lead" email.</p>
     </div>
   `;
 }
